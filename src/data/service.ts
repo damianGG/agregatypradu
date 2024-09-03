@@ -372,39 +372,39 @@ export const serviceList10 = [
 export const serviceList11 = [
   {
     id: 1,
-    link: '#',
+    linkUrl: '/sprzedaz', 
     Icon: Edit,
-    title: 'Content Marketing',
+    title: 'Sprzedaż lub leasing',
     linkType: LinkType.fuchsia,
     iconClassName: 'icon-svg-sm solid-mono text-fuchsia mb-3',
-    description: `Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus cras justo.`
+    description: `Oferujemy szeroką gamę agregatów prądotwórczych dużej mocy, dostosowanych do potrzeb przemysłu, branży rozrywkowej i dużych przedsiębiorstw .`
   },
   {
     id: 2,
-    link: '#',
+    linkUrl: '/serwis-i-naprawa',
     Icon: TeamTwo,
-    title: 'Social Engagement',
+    title: 'Serwis i naprawa',
     linkType: LinkType.violet,
     iconClassName: 'icon-svg-sm solid-mono text-violet mb-3',
-    description: `Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus cras justo.`
+    description: `Zapewniamy kompleksowy serwis i naprawy, aby Twoje agregaty działały bez zakłóceń. Nasi technicy są dostępni, by szybko rozwiązać problemy. `
   },
   {
     id: 3,
-    link: '#',
+    linkUrl: '/opieka-24-7',
     Icon: Lamp,
     linkType: LinkType.orange,
-    title: 'Identity & Branding',
+    title: 'Opieka 24/7',
     iconClassName: 'icon-svg-sm solid-mono text-orange mb-3',
-    description: `Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus cras justo.`
+    description: `Nasza opieka techniczna jest dostępna przez całą dobę, 7 dni w tygodniu, aby zapewnić ciągłość zasilania w każdej sytuacji. Jesteśmy gotowi na wsparcie, kiedy tylko tego potrzebujesz.`
   },
   {
     id: 4,
-    link: '#',
+    linkUrl: '/transport',
     Icon: DeliveryBox,
-    title: 'Product Design',
+    title: 'Transport',
     linkType: LinkType.green,
     iconClassName: 'icon-svg-sm solid-mono text-green mb-3',
-    description: `Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus cras justo.`
+    description: `Oferujemy bezpieczny i szybki transport agregatów prądotwórczych na terenie całego kraju. Dostarczamy sprzęt na czas, zapewniając jego bezpieczne dotarcie do celu.`
   }
 ];
 

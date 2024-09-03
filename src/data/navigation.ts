@@ -121,19 +121,11 @@ const projectsNavigation = [
 
 // blog pages links
 const blogsNavigation = [
-  { id: 1, url: "/blog-1", title: "Blog without Sidebar" },
-  { id: 2, url: "/blog-2", title: "Blog with Sidebar" },
-  { id: 3, url: "/blog-3", title: "Blog with Left Sidebar" },
-  {
-    id: 4,
-    url: null,
-    title: "Blog Posts",
-    children: [
-      { id: 41, url: "/blog-details-1", title: "Post without Sidebar" },
-      { id: 42, url: "/blog-details-2", title: "Post with Sidebar" },
-      { id: 43, url: "/blog-details-3", title: "Post with Left Sidebar" }
-    ]
-  }
+  { id: 1, url: "/agregaty", title: "Agregat Plus Power 75kW" },
+  { id: 2, url: "/agregaty", title: "Agregat Plus Power 100kW" },
+  { id: 3, url: "/agregaty", title: "Agregat Plus Power 120kW" },
+  { id: 3, url: "/agregaty", title: "Agregat Plus Power 150kW" },
+  { id: 3, url: "/agregaty", title: "Agregat Plus Power 200kW" },
 ];
 
 // documentation pages links

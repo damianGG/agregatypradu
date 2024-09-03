@@ -11,8 +11,12 @@ import Link from "next/link";
 // LOCAL CUSTOM COMPONENTS
 import HeaderRight from "../components/header-right";
 import FancyHeader from "../components/fancy-header";
-import JPLogo from "../../../../../public/img/logos/logo-workts.jpg";
+import LogoPower from "../../../../../public/img/power.svg";
 import Toplogo from "../top-logo/Toplogo";
+import DropdownToggleLink from "@/components/reuseable/links/DropdownToggleLink";
+import { blogsNavigation } from "@/data/navigation";
+import ListItemLink from "@/components/reuseable/links/ListItemLink";
+import renderLinks from "../components/render-links";
 
 // ===================================================================
 interface NavbarProps {
@@ -41,7 +45,7 @@ export default function NavbarOne({
   language = false,
   stickyBox = true,
   navOtherClass = "navbar-other w-100 d-flex ms-auto",
-  navClassName = "navbar navbar-expand-lg center-nav transparent navbar-light mt-5 mb-5"
+  navClassName = "navbar navbar-expand-lg center-nav transparent navbar-light"
 }: NavbarProps) {
   useNestedDropdown();
   const sticky = useSticky(350);
@@ -58,18 +62,26 @@ export default function NavbarOne({
     <Fragment>
       <div className="navbar-brand w-100">
         <Link href="/" >
-          <Image
-            src={JPLogo}
 
-            alt="logo work&training"
-
+          <p className="fs-20 mb-0 "
             style={{
-              width: '100%',
-              height: 'auto',
-              maxWidth: '150px',
+              color: '#000',
             }}
-          />
+          >
+            <Image
+              src={LogoPower}
 
+              alt="logo agregatyprady.pl"
+
+              style={{
+                width: '100%',
+                height: 'auto',
+                maxWidth: '50px',
+                display: 'inline-block',
+              }}
+            />
+            agregatypradu.pl
+          </p>
         </Link>
       </div>
 
@@ -83,11 +95,37 @@ export default function NavbarOne({
           <ul className="navbar-nav ">
             {/* <PagesNavItem /> */}
             <li><Link className="nav-link fs-20" href="/o-nas">O nas</Link></li>
-            <li><Link className="nav-link fs-20" href="/szkolenia">Szkolenia</Link></li>
-            <li><Link className="nav-link fs-20" href="/projekty">Projekty</Link></li>
-            <li><Link className="nav-link fs-20" href="/kursy">Kursy</Link></li>
+            <li><Link className="nav-link fs-20" href="/oferta">Oferta</Link></li>
+            <li className="nav-item dropdown">
+              <DropdownToggleLink title="Agregaty" className="nav-link dropdown-toggle fs-20" />
+
+              <ul className="dropdown-menu">
+                {blogsNavigation.map(({ id, url, title, children }) => {
+                  if (!url && children) {
+                    return (
+                      <li className="dropdown dropdown-submenu dropend" key={id}>
+                        <DropdownToggleLink title="Blog Posts" />
+                        <ul className="dropdown-menu">{renderLinks(children)}</ul>
+                      </li>
+                    );
+                  }
+                  return <ListItemLink key={id} href={url} title={title} linkClassName="dropdown-item" />;
+                })}
+              </ul>
+            </li>
+            {/* <li><Link className="nav-link fs-20" href="/kontakt">Realizacje</Link></li> */}
+            <li><Link className="nav-link fs-20" href="/galeria">Galeria</Link></li>
             <li><Link className="nav-link fs-20" href="/kontakt">Kontakt</Link></li>
           </ul>
+
+
+
+
+
+
+
+
+
 
 
           {/* ============= show contact info in the small device sidebar ============= */}

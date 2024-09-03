@@ -56,11 +56,11 @@ export default function ProductCard(props: ProductCardProps) {
         </a>
 
         <a className="item-cart">
-          <i className="uil uil-shopping-bag" /> Add to Cart
+          <i className="uil uil-shopping-bag" /> Zobacz
         </a>
 
-        {newProduct && badge("New!", "bg-aqua")}
-        {sale && badge("Sale!", "bg-pink")}
+        {newProduct && badge("Nowy", "bg-aqua")}
+        {sale && badge("Promocja", "bg-pink")}
       </figure>
 
       <div className="post-header">
@@ -77,14 +77,14 @@ export default function ProductCard(props: ProductCardProps) {
           {salePrice && salePrice > 0 ? (
             <>
               <del>
-                <span className="amount">{currency(salePrice)}</span>
+                <span className="amount">{salePrice} zł</span>
               </del>{" "}
               <ins>
-                <span className="amount">{currency(regularPrice)}</span>
+                <span className="amount">{regularPrice} zł</span>
               </ins>
             </>
           ) : (
-            <span className="amount">{currency(regularPrice)}</span>
+            <span className="amount">{regularPrice} zł</span>
           )}
         </p>
       </div>

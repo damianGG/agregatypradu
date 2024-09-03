@@ -4,16 +4,16 @@ import { Manrope } from "next/font/google";
 import "@/assets/scss/style.scss";
 import NavbarOne from "@/components/blocks/navbar/navbar-1/NavbarOne";
 import Toplogo from "@/components/blocks/navbar/top-logo/Toplogo";
-import Footer2 from "@/components/blocks/footer/Footer2";
 import Link from "next/link";
 import AccessibilityButton from "@/components/reuseable/AccessibilityButton";
+import Footer1 from "@/components/blocks/footer/Footer1";
 
 
 const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Work & Training service",
-  description: "",
+  title: "Agregaty pradowe",
+  description: "Agregaty pradowe dużej mocy",
 };
 
 export default function RootLayout({
@@ -31,9 +31,9 @@ export default function RootLayout({
       <body className={manrope.className}>
 
         <NavbarOne />
-        <AccessibilityButton />
+        {/* <AccessibilityButton /> */}
         <div>{children}</div>
-        <Footer2 />
+        <Footer1 />
       </body>
     </html>
 

@@ -1,27 +1,27 @@
 // used in the testimonial-1 block
 export const testimonialList1 = [
   {
-    name: 'Coriss Ambady',
-    designation: 'Financial Analyst',
-    review: 'Cum sociis natoque penatibus et magnis dis parturient montes.',
+    name: 'Jan Kowalski',
+    designation: 'Kierownik Projektu Budowlanego',
+    review: 'Nasza firma budowlana korzysta z agregatów prądotwórczych o dużej mocy już od kilku lat. Dzięki niezawodności tych urządzeń, możemy prowadzić prace na budowach nawet w najbardziej odległych miejscach, gdzie brak dostępu do sieci energetycznej. Agregaty działają bez zarzutu, a ich moc pozwala na jednoczesne zasilanie wielu maszyn budowlanych.',
     columnClasses: 'col-xl-5 align-self-end'
   },
   {
-    name: 'Cory Zamora',
-    designation: 'Marketing Specialist',
-    review: `Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum id ligula porta felis euismod.`,
+    name: 'Anna Nowak',
+    designation: ' Dyrektor Hotelu',
+    review: `Prowadząc hotel w górach, gdzie często zdarzają się przerwy w dostawie prądu, potrzebowaliśmy niezawodnego źródła energii. Agregat prądotwórczy o dużej mocy doskonale spełnia swoją rolę, zapewniając ciągłość zasilania dla całego obiektu, co przekłada się na komfort i bezpieczeństwo naszych gości.`,
     columnClasses: 'align-self-end'
   },
   {
-    name: 'Barclay Widerski',
-    designation: 'Sales Specialist',
-    review: `Donec id elit non porta gravida at eget metus. Duis mollis est luctus commodo nisi erat.`,
+    name: 'Piotr Wiśniewski',
+    designation: 'Menedżer Cementowni',
+    review: `Nasza cementownia wymaga stabilnego i mocnego źródła energii, aby produkcja mogła przebiegać bez przestojów. Wybraliśmy agregat prądotwórczy o mocy 200 kW, który spełnia wszystkie nasze oczekiwania. Urządzenie działa bezawaryjnie, a jego serwisowanie jest proste i szybkie.`,
     columnClasses: 'col-xl-5 offset-xl-1'
   },
   {
-    name: 'Jackie Sanders',
-    designation: 'Investment Planner',
-    review: `Nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo pellentesque.`,
+    name: 'Katarzyna Mazur',
+    designation: 'Właścicielka Resortu Wypoczynkowego',
+    review: `Nasze centrum wypoczynkowe znajduje się w miejscu, gdzie często występują awarie prądu. Dzięki dużemu agregatowi prądotwórczemu, możemy zagwarantować naszym gościom nieprzerwaną obsługę, niezależnie od warunków zewnętrznych. To inwestycja, która z pewnością się opłaciła.`,
     columnClasses: 'align-self-start'
   }
 ];
