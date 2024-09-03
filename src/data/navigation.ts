@@ -121,11 +121,11 @@ const projectsNavigation = [
 
 // blog pages links
 const blogsNavigation = [
-  { id: 1, url: "/agregaty", title: "Agregat Plus Power 75kW" },
-  { id: 2, url: "/agregaty", title: "Agregat Plus Power 100kW" },
-  { id: 3, url: "/agregaty", title: "Agregat Plus Power 120kW" },
-  { id: 3, url: "/agregaty", title: "Agregat Plus Power 150kW" },
-  { id: 3, url: "/agregaty", title: "Agregat Plus Power 200kW" },
+  { id: 1, url: "/agregaty", title: "Agregat Plus Power 75kW",children: []},
+  { id: 2, url: "/agregaty", title: "Agregat Plus Power 100kW",children: [] },
+  { id: 3, url: "/agregaty", title: "Agregat Plus Power 120kW",children: [] },
+  { id: 3, url: "/agregaty", title: "Agregat Plus Power 150kW",children: [] },
+  { id: 3, url: "/agregaty", title: "Agregat Plus Power 200kW",children: [] },
 ];
 
 // documentation pages links

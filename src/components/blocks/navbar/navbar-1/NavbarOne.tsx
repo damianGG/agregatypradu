@@ -45,7 +45,7 @@ export default function NavbarOne({
   language = false,
   stickyBox = true,
   navOtherClass = "navbar-other w-100 d-flex ms-auto",
-  navClassName = "navbar navbar-expand-lg center-nav transparent navbar-light"
+  navClassName = "navbar navbar-expand-lg center-nav transparent navbar-light",
 }: NavbarProps) {
   useNestedDropdown();
   const sticky = useSticky(350);
@@ -104,12 +104,14 @@ export default function NavbarOne({
                   if (!url && children) {
                     return (
                       <li className="dropdown dropdown-submenu dropend" key={id}>
-                        <DropdownToggleLink title="Blog Posts" />
+                        <DropdownToggleLink title={title} />
                         <ul className="dropdown-menu">{renderLinks(children)}</ul>
                       </li>
                     );
                   }
-                  return <ListItemLink key={id} href={url} title={title} linkClassName="dropdown-item" />;
+                  return (
+                    <ListItemLink key={id} href={url || "#"} title={title} linkClassName="dropdown-item" />
+                  );
                 })}
               </ul>
             </li>
@@ -117,17 +119,6 @@ export default function NavbarOne({
             <li><Link className="nav-link fs-20" href="/galeria">Galeria</Link></li>
             <li><Link className="nav-link fs-20" href="/kontakt">Kontakt</Link></li>
           </ul>
-
-
-
-
-
-
-
-
-
-
-
           {/* ============= show contact info in the small device sidebar ============= */}
           <div className="offcanvas-footer d-lg-none">
             <div>
