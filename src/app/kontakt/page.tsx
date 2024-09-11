@@ -79,8 +79,8 @@ export default function Contact() {
                                                     <div>
                                                         <h5 className="mb-1">Telefon</h5>
                                                         <p>
-                                                            XXXXXXXXXXXX <br />
-                                                            XXXXXXXXXXXX
+                                                            +48 606 392 657<br />
+
                                                         </p>
                                                     </div>
                                                 </div>

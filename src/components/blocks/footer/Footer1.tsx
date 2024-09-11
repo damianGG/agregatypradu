@@ -36,7 +36,7 @@ export default function Footer1() {
               <h4 className="widget-title text-white mb-3">Zostańmy w kontakcie</h4>
               <address className="pe-xl-15 pe-xxl-17">Sielec 1A, 39-120 Sędziszów Młp. Poland</address>
               <NextLink title="biuro@agregatypradu.pl" href="mailto:biuro@agregatypradu.pl" />
-              <br /> XXXXXXXXXXXXXXXX
+              <br />+48 606 392 657
             </div>
           </div>
 
