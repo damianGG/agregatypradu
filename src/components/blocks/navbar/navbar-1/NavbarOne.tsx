@@ -96,7 +96,8 @@ export default function NavbarOne({
             {/* <PagesNavItem /> */}
             <li><Link className="nav-link fs-20" href="/o-nas">O nas</Link></li>
             <li><Link className="nav-link fs-20" href="/oferta">Oferta</Link></li>
-            <li className="nav-item dropdown">
+            <li><Link className="nav-link fs-20" href="/agregaty/agregat-pluspower-120-kw">Agregaty</Link></li>
+            {/* <li className="nav-item dropdown">
               <DropdownToggleLink title="Agregaty" className="nav-link dropdown-toggle fs-20" />
 
               <ul className="dropdown-menu">
@@ -114,7 +115,7 @@ export default function NavbarOne({
                   );
                 })}
               </ul>
-            </li>
+            </li> */}
             {/* <li><Link className="nav-link fs-20" href="/kontakt">Realizacje</Link></li> */}
             <li><Link className="nav-link fs-20" href="/galeria">Galeria</Link></li>
             <li><Link className="nav-link fs-20" href="/kontakt">Kontakt</Link></li>

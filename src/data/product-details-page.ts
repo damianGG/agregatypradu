@@ -8,11 +8,11 @@ const breadcrumb = [
 
 // product sizes
 const sizeList = [
-  { value: '75', title: '75 kW' },
-  { value: '100', title: '100 kW' },
+  // { value: '75', title: '75 kW' },
+  // { value: '100', title: '100 kW' },
   { value: '120', title: '120 kW' },
   { value: '150', title: '150 kW' },
-  { value: '200', title: '200 kW' }
+  // { value: '200', title: '200 kW' }
 ];
 
 // product colors
@@ -27,9 +27,8 @@ const productColors = [
 // product information tabs
 const tabList = [
   { id: '#tab-1', title: 'Opis agregatu' },
-  { id: '#tab-2', title: 'Parametry techniczne' },
-  { id: '#tab-3', title: 'Parametry elektryczne' },
-  { id: '#tab-4', title: 'Dostawa' }
+  { id: '#tab-2', title: 'Parametry' },
+  { id: '#tab-3', title: 'Dostawa' }
 ];
 
 // product reviews

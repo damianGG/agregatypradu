@@ -2,12 +2,13 @@ import { Fragment } from "react";
 import clsx from "clsx";
 // CUSTOM DATA
 import data from "@/data/product-details-page";
+import Image from "next/image";
 
 export default function ProductDescription() {
   return (
     <Fragment>
       <ul className="nav nav-tabs nav-tabs-basic mt-12">
-        {data.tabList.map(({ id, title }, i) => (
+        {data.tabList.map(({ id, title }: { id: string, title: string }, i) => (
           <li className="nav-item" key={id}>
             <a data-bs-toggle="tab" href={id} className={clsx({ "nav-link": true, active: i === 0 })}>
               {title}
@@ -18,76 +19,297 @@ export default function ProductDescription() {
 
       <div className="tab-content mt-0 mt-md-5">
         <div className="tab-pane fade show active" id="tab-1">
-          <p>
-            Agregat prądotwórczy GF2/GF3 o mocy znamionowej 150 kW (200 kVA) to zaawansowane urządzenie zaprojektowane do zapewnienia niezawodnego źródła energii w różnych zastosowaniach przemysłowych i komercyjnych. Wyposażony w silnik Ricardo R6113ZLD, turbodoładowany z intercoolerem, agregat ten cechuje się wysoką wydajnością oraz niezawodnością działania.
-          </p>
-          <p>
-            Model ten spełnia normy emisji spalin Stage II, co czyni go odpowiednim wyborem do zastosowań zgodnych z aktualnymi przepisami dotyczącymi ochrony środowiska. Pracuje przy częstotliwości 50 Hz, z napięciem znamionowym 230/400 V, co sprawia, że idealnie nadaje się do zasilania różnorodnych urządzeń elektrycznych.
-          </p>
-          <p>
-            Agregat jest dostępny w dwóch wersjach: GF2 - otwarty oraz GF3 - zabudowany. Obie wersje wyposażone są w automatyczny regulator napięcia AVR, co gwarantuje stabilność napięcia na poziomie ±1%, minimalizując ryzyko uszkodzeń podłączonych urządzeń.
-          </p>
-          <p>
-            W standardowym wyposażeniu agregatu znajduje się mikroprocesorowy układ sterowania SmartGen, który umożliwia zdalny monitoring i kontrolę parametrów pracy, takich jak napięcie, częstotliwość, poziom paliwa czy temperatura silnika. Agregat posiada również funkcję automatycznego rozruchu, co czyni go idealnym rozwiązaniem do systemów awaryjnego zasilania.
-          </p>
-          <p>
-            Zastosowane wibroizolatory oraz zbiornik paliwa wbudowany w ramę zapewniają cichą i stabilną pracę urządzenia, przy jednoczesnym minimalizowaniu hałasu na poziomie 88 dB w wersji zabudowanej. Zbiornik paliwa o pojemności 260 litrów pozwala na nieprzerwaną pracę przez minimum 8 godzin przy pełnym obciążeniu.
-          </p>
+          <section className="wrapper bg-light angled upper-end">
+            <div className="container mb-15 mt-15">
+              <div className="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
+                <div className="col-lg-6 position-relative order-lg">
+                  <div className="overlap-grid overlap-grid-2">
+                    <div>
+                      <figure className="rounded shadow">
+                        <Image src="/img/photos/1.png" width={600} height={1000} alt="parametry elektryczne" />
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-lg-6">
+                  <h2 className="display-6 mb-3">Parametry Elektryczne</h2>
+                  <ul className="icon-list bullet-bg bullet-soft-primary mb-0">
+                    <li><i className="uil uil-check" /> Moc maksymalna: 188 kVA (150 kW)</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Moc znamionowa: 170 kVA (135 kW)</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Napięcie: 230/400V</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Prąd znamionowy: 244 A</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Częstotliwość: 50 Hz</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Ilość faz: 3</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
+                <div className="col-lg-6">
+                  <h2 className="display-6 mb-3">Wymiary i Waga</h2>
+                  <ul className="icon-list bullet-bg bullet-soft-primary mb-0">
+                    <li><i className="uil uil-check" /> Długość: 3105 mm</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Szerokość: 1145 mm</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Wysokość: 1455 mm</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Waga: 1980 kg</li>
+                  </ul>
+                </div>
+
+                <div className="col-lg-6 position-relative">
+                  <div className="overlap-grid overlap-grid-2">
+                    <div>
+                      <figure className="rounded shadow">
+                        <Image src="/img/photos/2.png" width={600} height={1000} alt="wymiary agregatu" />
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
+                <div className="col-lg-6 position-relative order-lg-">
+                  <div className="overlap-grid overlap-grid-2">
+                    <div>
+                      <figure className="rounded shadow">
+                        <Image src="/img/photos/IMG_6274.jpg" width={600} height={1000} alt="dane silnika" />
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-lg-6">
+                  <h2 className="display-6 mb-3">Dane Silnika</h2>
+                  <ul className="icon-list bullet-bg bullet-soft-primary mb-0">
+                    <li><i className="uil uil-check" /> Model: NM6108ZLDS</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Typ: Wysokoprężny, wolnossący</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Pojemność skokowa: 7,42 l</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Ilość cylindrów: 6</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Moc silnika: 167 kW</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Rodzaj rozruchu: Elektryczny</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
+                <div className="col-lg-6">
+                  <h2 className="display-6 mb-3">Parametry Eksploatacyjne</h2>
+                  <ul className="icon-list bullet-bg bullet-soft-primary mb-0">
+                    <li><i className="uil uil-check" /> Zużycie paliwa (50% obciążenia): 22 l/h</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Zużycie paliwa (75% obciążenia): 31 l/h</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Zużycie paliwa (100% obciążenia): 41 l/h</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Poziom hałasu: 108 dB(A)</li>
+                  </ul>
+                </div>
+
+                <div className="col-lg-6 position-relative">
+                  <div className="overlap-grid overlap-grid-2">
+                    <div>
+                      <figure className="rounded shadow">
+                        <Image src="/img/photos/6.png" width={600} height={1000} alt="parametry eksploatacyjne" />
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
+                <div className="col-lg-6 position-relative ">
+                  <div className="overlap-grid overlap-grid-2">
+                    <div>
+                      <figure className="rounded shadow">
+                        <Image src="/img/photos/pradnica.webp" width={600} height={1000} alt="dane prądnicy" />
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-lg-6">
+                  <h2 className="display-6 mb-3">Dane Prądnicy</h2>
+                  <ul className="icon-list bullet-bg bullet-soft-primary mb-0">
+                    <li><i className="uil uil-check" /> Model prądnicy: BRUSHLESS Stamford UC274G</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Regulacja napięcia: Automatyczna (AVR)</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Klasa izolacji: H</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Stopień ochrony: IP23</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
+                <div className="col-lg-6">
+                  <h2 className="display-6 mb-3">System Sterowania</h2>
+                  <ul className="icon-list bullet-bg bullet-soft-primary mb-0">
+                    <li><i className="uil uil-check" /> Sterownik mikroprocesorowy: Plus Power RF6120U</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Funkcje: AUTO / MANUAL / TEST / STOP</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Kontrola napięcia 3-fazowego: Tak</li>
+                    <li className="mt-3"><i className="uil uil-check" /> Współpraca z SZR: RTSE i ATSE</li>
+                  </ul>
+                </div>
+
+                <div className="col-lg-6 position-relative">
+                  <div className="overlap-grid overlap-grid-2">
+                    <div>
+                      <figure className="rounded shadow">
+                        <Image src="/img/photos/1.png" width={600} height={1000} alt="system sterowania" />
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
 
         </div>
 
         <div className="tab-pane fade" id="tab-2">
-          <p>
-            Agregat prądotwórczy GF2/GF3-150kW to wszechstronne i potężne urządzenie zaprojektowane z myślą o wysokich wymaganiach użytkowników z różnych sektorów przemysłowych. Urządzenie to oferuje moc znamionową 150 kW (200 kVA), co czyni je idealnym rozwiązaniem dla zasilania dużych obiektów, zakładów przemysłowych, placów budowy, a także jako niezawodne źródło energii awaryjnej.
-          </p>
-          <p>
-            Waga agregatu różni się w zależności od wersji. W przypadku modelu GF2 (otwarty) masa wynosi 1800 kg, natomiast wersja GF3 (zabudowany) waży 1900 kg. Dzięki solidnej konstrukcji i odpowiedniej masie, agregat jest stabilny podczas pracy, co przekłada się na jego niezawodność i trwałość w trudnych warunkach eksploatacyjnych.
-          </p>
-          <p>
-            Jeśli chodzi o wymiary, wersja GF2 posiada następujące rozmiary: 3300 mm długości, 1250 mm szerokości i 1800 mm wysokości. Model GF3 jest nieco większy, z wymiarami 3350 mm długości, 1300 mm szerokości i 1800 mm wysokości. Te kompaktowe, jak na swoją moc, wymiary umożliwiają łatwy transport i instalację w różnych lokalizacjach, zarówno wewnętrznych, jak i zewnętrznych.
-          </p>
-          <p>
-            Agregat wyposażony jest w silnik Ricardo R6113ZLD, który pracuje z prędkością obrotową 1500 obr./min. Jest to turbodoładowany silnik wysokoprężny, z intercoolerem, co zapewnia optymalną wydajność oraz niskie zużycie paliwa. Pojemność zbiornika paliwa wynosi 260 litrów, co pozwala na nieprzerwaną pracę agregatu przez co najmniej 8 godzin przy pełnym obciążeniu. Zużycie paliwa przy pełnym obciążeniu wynosi około 39 litrów na godzinę, przy 75% obciążeniu jest to 29,3 litra na godzinę, natomiast przy 50% obciążeniu – 19,5 litra na godzinę.
-          </p>
-          <p>
-            Kluczowym aspektem agregatu jest także poziom generowanego hałasu. W wersji zabudowanej (GF3) poziom hałasu wynosi 88 dB, mierzony w odległości 7 metrów od urządzenia, co czyni go stosunkowo cichym jak na tego typu urządzenia. Dla porównania, wersja otwarta (GF2) generuje hałas na poziomie 105 dB. Dzięki zastosowaniu nowoczesnych technologii tłumienia hałasu, agregat może być instalowany w miejscach, gdzie konieczne jest zachowanie niskiego poziomu dźwięku, bez kompromisów w zakresie wydajności.
-          </p>
-          <p>
-            Prądnica Stamford T2X-150kW, która jest integralną częścią agregatu, charakteryzuje się wysoką stabilnością napięcia na poziomie ±1%, co zapewnia bezpieczne zasilanie nawet najbardziej wrażliwych urządzeń elektrycznych. Prądnica ta posiada bezszczotkową konstrukcję oraz klasę izolacji uzwojeń H, co zwiększa jej trwałość i odporność na ekstremalne warunki pracy. Stopień ochrony IP23 dodatkowo zabezpiecza urządzenie przed szkodliwymi czynnikami zewnętrznymi, takimi jak kurz czy woda.
-          </p>
-          <p>
-            W ramach standardowego wyposażenia, agregat zawiera również takie elementy jak automatyczny rozruch, wskaźniki parametrów elektrycznych i mechanicznych, wibroizolatory, akumulatory oraz moduł ładowania baterii. Wszystkie te komponenty zostały zaprojektowane z myślą o zapewnieniu maksymalnej efektywności operacyjnej oraz łatwości obsługi i konserwacji.
-          </p>
-          <p>
-            Dodatkowym atutem agregatu GF2/GF3-150kW jest możliwość doposażenia go w opcjonalne elementy, takie jak grzałka do podgrzewania silnika, drzwiczki zamykane na klucz, uchwyt do podnoszenia dźwigiem oraz system zdalnego monitoringu GSM. Te opcje dodatkowe pozwalają na jeszcze lepsze dostosowanie agregatu do specyficznych potrzeb użytkownika, zapewniając przy tym maksymalną elastyczność i bezpieczeństwo użytkowania.
-          </p>
+          <table className="table">
+            <thead>
+              <tr>
+                <th scope="col">Parametr</th>
+                <th scope="col">Moc agregatu</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Moc maksymalna (kVA)</td>
+                <td>150</td>
+              </tr>
+              <tr>
+                <td>Moc maksymalna (kW)</td>
+                <td>120</td>
+              </tr>
+              <tr>
+                <td>Moc znamionowa (kVA)</td>
+                <td>135</td>
+              </tr>
+              <tr>
+                <td>Moc znamionowa (kW)</td>
+                <td>108</td>
+              </tr>
+              <tr>
+                <td>Napięcie (V)</td>
+                <td>230/400V</td>
+              </tr>
+              <tr>
+                <td>Współczynnik mocy</td>
+                <td>0,8</td>
+              </tr>
+              <tr>
+                <td>Prąd znamionowy (A)</td>
+                <td>195 A</td>
+              </tr>
+              <tr>
+                <td>Częstotliwość (Hz)</td>
+                <td>50 Hz</td>
+              </tr>
+              <tr>
+                <td>Ilość faz</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td>Długość (mm)</td>
+                <td>2905 mm</td>
+              </tr>
+              <tr>
+                <td>Szerokość (mm)</td>
+                <td>1107 mm</td>
+              </tr>
+              <tr>
+                <td>Wysokość (mm)</td>
+                <td>1455 mm</td>
+              </tr>
+              <tr>
+                <td>Waga bez paliwa (kg)</td>
+                <td>1690 kg</td>
+              </tr>
+              <tr>
+                <td>Model silnika</td>
+                <td>NM6105BZLD</td>
+              </tr>
+              <tr>
+                <td>Rodzaj silnika</td>
+                <td>Wysokoprężny</td>
+              </tr>
+              <tr>
+                <td>Typ silnika</td>
+                <td>Wolnossący</td>
+              </tr>
+              <tr>
+                <td>Rodzaj paliwa</td>
+                <td>Olej napędowy (ON)</td>
+              </tr>
+              <tr>
+                <td>Pojemność skokowa (l)</td>
+                <td>6,75 l</td>
+              </tr>
+              <tr>
+                <td>Ilość cylindrów</td>
+                <td>6</td>
+              </tr>
+              <tr>
+                <td>Moc silnika (kW)</td>
+                <td>132 kW</td>
+              </tr>
+              <tr>
+                <td>Prędkość obrotowa (obr/min)</td>
+                <td>1500 obr/min</td>
+              </tr>
+              <tr>
+                <td>Ilość czynnika chłodzącego</td>
+                <td>25 l</td>
+              </tr>
+              <tr>
+                <td>Ilość oleju w układzie smarowania</td>
+                <td>16 l</td>
+              </tr>
+              <tr>
+                <td>Rodzaj rozruchu</td>
+                <td>Elektryczny</td>
+              </tr>
+              <tr>
+                <td>Zużycie paliwa (50% obciążenia) (l/h)</td>
+                <td>16</td>
+              </tr>
+              <tr>
+                <td>Zużycie paliwa (75% obciążenia) (l/h)</td>
+                <td>23</td>
+              </tr>
+              <tr>
+                <td>Zużycie paliwa (100% obciążenia) (l/h)</td>
+                <td>30</td>
+              </tr>
+              <tr>
+                <td>Gwarantowany poziom hałasu (dB)</td>
+                <td>108 dBa</td>
+              </tr>
+              <tr>
+                <td>Model prądnicy</td>
+                <td>BRUSHLESS (brand Stamford), UC274F</td>
+              </tr>
+              <tr>
+                <td>Rodzaj prądnicy</td>
+                <td>Synchroniczna 3F</td>
+              </tr>
+              <tr>
+                <td>Regulacja prądnicy</td>
+                <td>Automatyczna regulacja AVR</td>
+              </tr>
+              <tr>
+                <td>Klasa izolacji</td>
+                <td>Klasa H</td>
+              </tr>
+              <tr>
+                <td>Stopień ochrony prądnicy</td>
+                <td>IP 23</td>
+              </tr>
+            </tbody>
+          </table>
+
         </div>
+
 
         <div className="tab-pane fade" id="tab-3">
-          <p>
-            Agregat prądotwórczy GF2/GF3-150kW został zaprojektowany z myślą o zapewnieniu stabilnego i niezawodnego źródła energii elektrycznej. Jego parametry elektryczne sprawiają, że jest idealnym rozwiązaniem zarówno dla zastosowań przemysłowych, jak i komercyjnych, gdzie kluczowe jest zapewnienie nieprzerwanego zasilania.
-          </p>
-          <p>
-            Moc znamionowa agregatu wynosi 150 kW, co odpowiada 200 kVA przy współczynniku mocy (cos φ) równym 0,8. Dzięki temu agregat jest w stanie zasilać zarówno urządzenia o charakterze rezystancyjnym, jak i indukcyjnym, zapewniając odpowiednią wydajność w szerokim zakresie zastosowań. Prąd znamionowy wynosi 270 A, co pozwala na efektywne zasilanie dużych instalacji elektrycznych.
-          </p>
-          <p>
-            Agregat pracuje przy napięciu znamionowym 230/400 V, co jest standardem dla większości instalacji elektrycznych w Europie. Częstotliwość pracy wynosi 50 Hz, co zapewnia kompatybilność z większością urządzeń elektrycznych oraz spełnia wymogi lokalnych norm i standardów.
-          </p>
-          <p>
-            Ważnym elementem konstrukcji jest prądnica Stamford T2X-150kW, która zapewnia stabilność napięcia na poziomie ±1%. Prądnica ta wyposażona jest w automatyczny regulator napięcia (AVR), który utrzymuje stałe napięcie wyjściowe, minimalizując ryzyko uszkodzeń wrażliwych urządzeń podłączonych do agregatu. Dodatkowo, bezszczotkowa konstrukcja prądnicy zwiększa jej trwałość i zmniejsza wymagania konserwacyjne.
-          </p>
-          <p>
-            Agregat charakteryzuje się niską zawartością harmonicznych (THD) poniżej 2%, co oznacza, że generowane napięcie jest czyste i stabilne, co jest szczególnie istotne przy zasilaniu sprzętu elektronicznego, komputerów, serwerów oraz innych urządzeń wrażliwych na jakość zasilania. Klasa izolacji uzwojeń prądnicy wynosi H, co zapewnia wysoką odporność na przeciążenia termiczne i długą żywotność prądnicy nawet w trudnych warunkach eksploatacyjnych.
-          </p>
-          <p>
-            Agregat jest również wyposażony w system automatycznego rozruchu, który umożliwia natychmiastowe uruchomienie urządzenia w przypadku zaniku zasilania z sieci. Funkcja ta jest szczególnie przydatna w zastosowaniach krytycznych, takich jak szpitale, data centers czy obiekty przemysłowe, gdzie każda przerwa w dostawie prądu może prowadzić do poważnych konsekwencji.
-          </p>
-          <p>
-            Panel sterowania SmartGen HGM6120, w który wyposażono agregat, zapewnia pełną kontrolę nad parametrami elektrycznymi urządzenia. Umożliwia monitorowanie napięcia, częstotliwości, prądu oraz poziomu paliwa w zbiorniku. Dodatkowo, panel ten umożliwia zdalne monitorowanie i zarządzanie agregatem, co zwiększa komfort i bezpieczeństwo użytkowania.
-          </p>
-        </div>
-
-        <div className="tab-pane fade" id="tab-4">
           <p>
             Dokładamy wszelkich starań, aby proces dostawy naszych agregatów prądotwórczych był tak samo niezawodny, jak nasze produkty. Oferujemy darmową dostawę na terenie całego kraju, jak i do krajów europejskich, dbając o to, aby zamówione urządzenia dotarły do Ciebie w nienaruszonym stanie i w ustalonym terminie.
           </p>

@@ -13,7 +13,7 @@ export default function Hero19() {
             </h1>
 
             <p className="lead fs-24 text-white lh-sm mb-7 mx-md-13 mx-lg-10" style={slideInDownAnimate("300ms")}>
-              Jesteśmy wiodącym dystrybutorem agregatów prądotwórczych dużej mocy
+              Jesteśmy dystrybutorem agregatów prądotwórczych dużej mocy marki PlusPower
             </p>
 
             {/* <div style={slideInDownAnimate("600ms")}>

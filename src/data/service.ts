@@ -374,28 +374,28 @@ export const serviceList11 = [
     id: 1,
     linkUrl: '/sprzedaz', 
     Icon: Edit,
-    title: 'Sprzedaż lub leasing',
+    title: 'Sprzedaż',
     linkType: LinkType.fuchsia,
     iconClassName: 'icon-svg-sm solid-mono text-fuchsia mb-3',
-    description: `Oferujemy szeroką gamę agregatów prądotwórczych dużej mocy, dostosowanych do potrzeb przemysłu, branży rozrywkowej i dużych przedsiębiorstw .`
+    description: `Oferujemy agregaty dużej mocy, dostosowane do potrzeb przemysłu, branży rozrywkowej i dużych przedsiębiorstw .`
   },
   {
     id: 2,
     linkUrl: '/serwis-i-naprawa',
     Icon: TeamTwo,
-    title: 'Serwis i naprawa',
+    title: 'Doradztwo techniczne',
     linkType: LinkType.violet,
     iconClassName: 'icon-svg-sm solid-mono text-violet mb-3',
-    description: `Zapewniamy kompleksowy serwis i naprawy, aby Twoje agregaty działały bez zakłóceń. Nasi technicy są dostępni, by szybko rozwiązać problemy. `
+    description: `Pomożemy dobrać agregat prądotwórczy, który spełni Twoje oczekiwania tak pod względem mocy, jak i wydajności.`
   },
   {
     id: 3,
     linkUrl: '/opieka-24-7',
     Icon: Lamp,
     linkType: LinkType.orange,
-    title: 'Opieka 24/7',
+    title: 'Pierwsze uruchomienie',
     iconClassName: 'icon-svg-sm solid-mono text-orange mb-3',
-    description: `Nasza opieka techniczna jest dostępna przez całą dobę, 7 dni w tygodniu, aby zapewnić ciągłość zasilania w każdej sytuacji. Jesteśmy gotowi na wsparcie, kiedy tylko tego potrzebujesz.`
+    description: `Zapewniamy profesjonalne wsparcie techniczne przy pierwszym uruchomieniu agregatu. `
   },
   {
     id: 4,
@@ -404,7 +404,7 @@ export const serviceList11 = [
     title: 'Transport',
     linkType: LinkType.green,
     iconClassName: 'icon-svg-sm solid-mono text-green mb-3',
-    description: `Oferujemy bezpieczny i szybki transport agregatów prądotwórczych na terenie całego kraju. Dostarczamy sprzęt na czas, zapewniając jego bezpieczne dotarcie do celu.`
+    description: `Oferujemy bezpieczny i szybki transport agregatów prądotwórczych na terenie całego kraju.`
   }
 ];
 

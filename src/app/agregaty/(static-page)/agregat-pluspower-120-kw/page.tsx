@@ -5,15 +5,16 @@ import Breadcrumb from "@/components/reuseable/Breadcrumb";
 import { ProductCard } from "@/components/reuseable/product-cards";
 
 // LOCAL CUSTOM COMPONENTS
-import ProductReviews from "./components/product-reviews";
-import ProductDescription from "./components/product-description";
-import ProductReviewAside from "./components/product-review-aside";
+import ProductReviews from "../../components/product-reviews";
+import ProductDescription from "../../components/product-description";
+import ProductReviewAside from "../../components/product-review-aside";
 // CUSTOM DATA
 import products from "@/data/product-list";
 import data from "@/data/product-details-page";
 import ThumbsCarousel from "@/components/reuseable/ThumbsCarousel";
-import ProductActions from "./components/product-actions-150";
+import ProductActions from "../../components/product-actions-150";
 import Link from "next/link";
+import ProductActions120 from "../../components/product-actions-120";
 
 export async function generateStaticParams() {
   return [1, 2, 3, 4, 5, 6].map((item) => ({ id: item.toString() }));
@@ -49,7 +50,7 @@ export default function ProductDetails() {
             </div>
 
             {/* ========== product actions (size, color, add to cart) section ========== */}
-            <ProductActions />
+            <ProductActions120 />
           </div>
 
           {/* ========== product description tab section ========== */}
