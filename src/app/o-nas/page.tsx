@@ -23,11 +23,9 @@ export default function News() {
                 <div className="container mb-15 mt-15  ">
                     <div className="mt-4 mb-15">
                         <p className="mb-3 fw-bold lead fs-lg">
-                            Jako wiodący dystrybutor agregatów prądotwórczych dużej mocy, nasza firma z dumą oferuje rozwiązania energetyczne, które spełniają najbardziej wymagające standardy branżowe. Dzięki wieloletniemu doświadczeniu i współpracy z czołowymi producentami na rynku, dostarczamy naszym klientom niezawodne, wysokiej jakości agregaty, które sprawdzają się w każdej sytuacji — od zapewnienia zasilania na placach budowy, przez utrzymanie ciągłości operacji przemysłowych, aż po zasilanie rezerwowe dla infrastruktury krytycznej.
-                        </p>
+                            Jako dystrybutor agregatów prądotwórczych dużej mocy, oferujemy rozwiązania energetyczne, które sprostają nawet najbardziej wymagającym potrzebom. Dzięki wieloletniemu doświadczeniu i współpracy z uznanymi producentami, dostarczamy niezawodne agregaty, które sprawdzają się w różnych sytuacjach – od placów budowy, przez operacje przemysłowe, po zasilanie awaryjne dla kluczowych instalacji.                        </p>
                         <p className="mb-3 fw-bold lead fs-lg">
-                            Nasza firma to nie tylko dystrybutor — jesteśmy partnerem, który oferuje kompleksowe wsparcie na każdym etapie współpracy. Od momentu wyboru odpowiedniego sprzętu, przez jego dostarczenie i instalację, aż po serwis i konserwację — naszym priorytetem jest zapewnienie, że nasi klienci otrzymają najlepsze możliwe rozwiązania. Nasze usługi wyróżnia profesjonalizm, indywidualne podejście oraz pełne zaangażowanie w realizację każdego projektu. Zaufanie, jakim obdarzyli nas nasi klienci, jest najlepszym dowodem na to, że jesteśmy liderem w naszej branży.
-                        </p>
+                            Nie jesteśmy tylko dystrybutorem – jesteśmy partnerem, który wspiera swoich klientów na każdym etapie. Od wyboru sprzętu, przez dostawę i instalację, aż po serwis i konserwację – zależy nam na tym, żeby nasi klienci zawsze mieli pewność, że dokonali właściwego wyboru. Nasze usługi opierają się na indywidualnym podejściu i zaangażowaniu. Zaufanie, którym obdarzają nas klienci, to dla nas najlepsze potwierdzenie, że robimy dobrą robotę.                        </p>
                     </div>
 
                     <div className="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
@@ -59,10 +57,6 @@ export default function News() {
                                         <li className="mt-3">
                                             <i className="uil uil-check" />
                                             Profesjonalny montaż i konfigurację sprzętu, dostosowaną do specyficznych potrzeb klienta, co zapewnia optymalne działanie w każdych warunkach.
-                                        </li>
-                                        <li className="mt-3">
-                                            <i className="uil uil-check" />
-                                            Regularny serwis i konserwację urządzeń, co gwarantuje ich długowieczność i niezawodność działania. Nasz zespół doświadczonych techników jest gotowy do szybkiej reakcji w razie potrzeby.
                                         </li>
                                         <li className="mt-3">
                                             <i className="uil uil-check" />

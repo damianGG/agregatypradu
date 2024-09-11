@@ -17,10 +17,12 @@ export default function ProductDescription() {
         ))}
       </ul>
 
+      {/* tab content */}
       <div className="tab-content mt-0 mt-md-5">
         <div className="tab-pane fade show active" id="tab-1">
           <section className="wrapper bg-light angled upper-end">
             <div className="container mb-15 mt-15">
+
               <div className="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
                 <div className="col-lg-6 position-relative order-lg">
                   <div className="overlap-grid overlap-grid-2">
@@ -44,7 +46,7 @@ export default function ProductDescription() {
                   </ul>
                 </div>
               </div>
-
+              {/* ###########################  WYMIARY I WAGA ###########################   */}
               <div className="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
                 <div className="col-lg-6">
                   <h2 className="display-6 mb-3">Wymiary i Waga</h2>
@@ -60,13 +62,13 @@ export default function ProductDescription() {
                   <div className="overlap-grid overlap-grid-2">
                     <div>
                       <figure className="rounded shadow">
-                        <Image src="/img/photos/2.png" width={600} height={1000} alt="wymiary agregatu" />
+                        <Image src="/img/photos/pluspower150kw_mainphoto-removebg-preview.png" width={600} height={1000} alt="wymiary agregatu" />
                       </figure>
                     </div>
                   </div>
                 </div>
               </div>
-
+              {/* ###########################  DANE SILNIKA ###########################   */}
               <div className="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
                 <div className="col-lg-6 position-relative order-lg-">
                   <div className="overlap-grid overlap-grid-2">
@@ -90,7 +92,7 @@ export default function ProductDescription() {
                   </ul>
                 </div>
               </div>
-
+              {/* ###########################  PARAMETRY EKSPLOATACYJNE ###########################   */}
               <div className="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
                 <div className="col-lg-6">
                   <h2 className="display-6 mb-3">Parametry Eksploatacyjne</h2>
@@ -112,7 +114,7 @@ export default function ProductDescription() {
                   </div>
                 </div>
               </div>
-
+              {/* ###########################  DANE PRĄDNICY ###########################   */}
               <div className="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
                 <div className="col-lg-6 position-relative ">
                   <div className="overlap-grid overlap-grid-2">
@@ -134,7 +136,7 @@ export default function ProductDescription() {
                   </ul>
                 </div>
               </div>
-
+              {/* ###########################  SYSTEM STEROWANIA ###########################   */}
               <div className="row gx-lg-8 gx-xl-12 gy-10 mb-14 mb-md-17 align-items-center">
                 <div className="col-lg-6">
                   <h2 className="display-6 mb-3">System Sterowania</h2>

@@ -33,7 +33,7 @@ export default function Services22() {
             </div>
 
             <div>
-              <h4 className="mb-1">Niezawodność i Wysoka    <br /> Jakość</h4>
+              <h4 className="mb-1">Wysoka Jakość</h4>
               <p>Wytrzymałe agregaty o wysokiej niezawodności w trudnych warunkach.</p>
             </div>
           </a>
@@ -52,8 +52,8 @@ export default function Services22() {
             </div>
 
             <div>
-              <h4 className="mb-1">Profesjonalne Doradztwo Techniczne</h4>
-              <p>Eksperckie doradztwo i wsparcie techniczne na każdym etapie.</p>
+              <h4 className="mb-1">Doradztwo Techniczne</h4>
+              <p>Doradztwo i wsparcie techniczne na każdym etapie.</p>
             </div>
           </a>
         </li>
@@ -71,8 +71,8 @@ export default function Services22() {
             </div>
 
             <div>
-              <h4 className="mb-1">Kompleksowa Obsługa Posprzedażowa</h4>
-              <p>Kompleksowy serwis i szybka dostawa części zamiennych.</p>
+              <h4 className="mb-1">SZR- automatyczny system załączania rezerwy</h4>
+              <p>Zapewnimy wsparcie w instalacji automatycznego systemu załączania agregatu</p>
             </div>
           </a>
         </li>
