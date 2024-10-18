@@ -1,16 +1,16 @@
 const products = [
-  // {
-  //   rating: 5,
-  //   new: true,
-  //   sale: false,
-  //   salePrice: 0,
-  //   regularPrice: 35700,
-  //   category: '',
-  //   title: 'PlusPower 40kW',
-  //   image: 'pluspower150kw_mainphoto',
-  //   id: '62f3bac114a90b9c05bce066',
-  //   power: '40',
-  // },
+  {
+    rating: 5,
+    new: true,
+    sale: false,
+    salePrice: 0,
+    regularPrice: 35700,
+    category: '',
+    title: 'PlusPower 40kW',
+    image: 'pluspower150kw_mainphoto',
+    id: '62f3bac114a90b9c05bce066',
+    power: '40',
+  },
   {
     rating: 5,
     new: true,
@@ -23,19 +23,8 @@ const products = [
     id: '62f3bad7afb837063e6e3de6',
     power: '120',
   },
-  {
-    rating: 5,
-    new: true,
-    sale: false,
-    salePrice: 0,
-    regularPrice: 66000,
-    category: '',
-    title: 'PlusPower 150kW',
-    image: 'pluspower150kw_mainphoto',
-    id: '62f3bb3a8ee7c0fd2d072f52',
-    power: '150',
 
-  },
+ 
   // {
   //   rating: 5,
   //   new: true,
