@@ -1,34 +1,45 @@
-import { slideInDownAnimate } from "@/utils/animation";
+import Link from "next/link";
 
 export default function Hero19() {
   return (
     <section
-      className="wrapper image-wrapper bg-image bg-overlay bg-overlay-300"
-      style={{ backgroundImage: "url(/img/photos/zdjecieWtle.png)" }}>
-      <div className="container pt-17 pb-19 pt-md-18 pb-md-17 text-center">
-        <div className="row">
-          <div className="col-lg-8 col-xl-7 col-xxl-6 mx-auto">
-            <h1 className="display-1 text-white fs-60 mb-4 px-md-15 px-lg-0" style={slideInDownAnimate("0ms")}>
-              Moc, na którą możesz  <span className="underline-3 style-2 blue">liczyć</span>
-            </h1>
-
-            <p className="lead fs-24 text-white lh-sm mb-7 mx-md-13 mx-lg-10" style={slideInDownAnimate("300ms")}>
-              Jesteśmy dystrybutorem agregatów prądotwórczych dużej mocy marki PlusPower
-            </p>
-
-            {/* <div style={slideInDownAnimate("600ms")}>
-              <button className="btn btn-white rounded mb-10 mb-xxl-5">Read More</button>
-            </div> */}
+      className="relative min-h-[600px] lg:min-h-[700px] flex items-center justify-center bg-cover bg-center"
+      style={{ backgroundImage: "url(/img/photos/zdjecieWtle.png)" }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-blue-900/60" />
+      
+      <div className="relative z-10 container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            Moc, na którą możesz{" "}
+            <span className="text-blue-300 underline decoration-blue-400">liczyć</span>
+          </h1>
+          <p className="text-xl lg:text-2xl text-blue-100 mb-10 leading-relaxed">
+            Jesteśmy dystrybutorem agregatów prądotwórczych dużej mocy marki PlusPower
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/agregaty/agregat-pluspower-120-kw"
+              className="bg-blue-500 hover:bg-blue-400 text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-200 shadow-lg"
+            >
+              Poznaj nasze agregaty
+            </Link>
+            <Link
+              href="/kontakt"
+              className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-200"
+            >
+              Skontaktuj się
+            </Link>
           </div>
         </div>
       </div>
 
-      <div className="overflow-hidden">
-        <div className="divider text-light mx-n2">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60">
-            <path fill="currentColor" d="M0,0V60H1440V0A5771,5771,0,0,1,0,0Z" />
-          </svg>
-        </div>
+      {/* Wave divider */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" className="text-white fill-current">
+          <path d="M0,0V60H1440V0A5771,5771,0,0,1,0,0Z" />
+        </svg>
       </div>
     </section>
   );

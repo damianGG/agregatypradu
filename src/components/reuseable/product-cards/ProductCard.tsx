@@ -1,10 +1,5 @@
-import NextLink from "../links/NextLink";
-// CUSTOM UTILS LIBRARY FUNCTIONS
-import currency from "@/utils/currency";
-import ratingGenerate from "@/utils/ratings";
 import Link from "next/link";
 
-// =========================================
 interface ProductCardProps {
   image: string;
   title: string;
@@ -17,77 +12,47 @@ interface ProductCardProps {
   regularPrice: number;
   power?: string;
 }
-// =========================================
 
 export default function ProductCard(props: ProductCardProps) {
   const { image, title, new: newProduct, sale, category, salePrice, regularPrice, rating, className = "", power } = props;
 
-  const badge = (title: string, color: string) => {
-    return (
-      <span
-        style={{ top: "1rem", left: "1rem" }}
-        className={`avatar ${color} text-white w-10 h-10 position-absolute text-uppercase fs-13`}>
-        <span>{title}</span>
-      </span>
-    );
-  };
-
   return (
-    <div className={`project item ${className}`}>
+    <div className={`group ${className}`}>
       <Link href={`/agregaty/agregat-pluspower-${power}-kw`}>
-        <figure className="rounded mb-6 position-relative overflow-hidden">
-          <img src={`/img/photos/${image}.webp`} srcSet={`/img/photos/${image}@2x.jpg 2x`} alt="" />
-
-          <a
-            href="#"
-            title=""
-            className="item-like"
-            aria-label="Add to wishlist"
-            data-bs-toggle="white-tooltip"
-            data-bs-original-title="Add to wishlist">
-            <i className="uil uil-heart" />
-          </a>
-
-          <a
-            href="#"
-            title=""
-            className="item-view"
-            aria-label="Quick view"
-            data-bs-toggle="white-tooltip"
-            data-bs-original-title="Quick view">
-            <i className="uil uil-eye" />
-          </a>
-
-          <a className="item-cart">
-            <i className="uil uil-shopping-bag" /> Zobacz
-          </a>
-
-          {newProduct && badge("Nowy", "bg-aqua")}
-          {sale && badge("Promocja", "bg-pink")}
-        </figure>
-
-        <div className="post-header">
-          <div className="d-flex flex-row align-items-center justify-content-between mb-2">
-            <div className="post-category text-ash mb-0">{category}</div>
-            <span className={`ratings ${ratingGenerate(rating)}`} />
+        <div className="relative overflow-hidden rounded-2xl mb-4 aspect-[4/3] bg-gray-100">
+          <img
+            src={`/img/photos/${image}.webp`}
+            srcSet={`/img/photos/${image}@2x.jpg 2x`}
+            alt={title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          {newProduct && (
+            <span className="absolute top-3 left-3 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
+              Nowy
+            </span>
+          )}
+          {sale && (
+            <span className="absolute top-3 left-3 bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">
+              Promocja
+            </span>
+          )}
+          <div className="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/20 transition-colors duration-300 flex items-center justify-center">
+            <span className="bg-white text-blue-700 font-semibold px-6 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0 transform">
+              Zobacz
+            </span>
           </div>
-
-          <h2 className="post-title h3 fs-22">
-            <NextLink title={title} href="#" className="link-dark" />
-          </h2>
-
-          <p className="price">
+        </div>
+        <div>
+          <p className="text-blue-600 text-sm font-medium mb-1">{category}</p>
+          <h2 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">{title}</h2>
+          <p className="text-gray-700 font-semibold">
             {salePrice && salePrice > 0 ? (
               <>
-                <del>
-                  <span className="amount">{salePrice} zł</span>
-                </del>{" "}
-                <ins>
-                  <span className="amount">{regularPrice} zł</span>
-                </ins>
+                <del className="text-gray-400 mr-2">{salePrice} zł</del>
+                <span className="text-blue-600">{regularPrice} zł</span>
               </>
             ) : (
-              <span className="amount">{regularPrice} zł</span>
+              <span>{regularPrice} zł</span>
             )}
           </p>
         </div>

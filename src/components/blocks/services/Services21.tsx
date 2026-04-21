@@ -1,19 +1,16 @@
 import { ServiceCard1 } from "@/components/reuseable/service-cards";
-// CUSTOM DATA
 import { serviceList11 } from "@/data/service";
 
 export default function Services21() {
   return (
     <>
-      <div className="row">
-        <div className="col-md-10 offset-md-1 col-lg-8 offset-lg-2 mx-auto text-center">
-          <h2 className="fs-16 text-uppercase text-muted mb-3">Dlaczego wybrać agregatypradu.pl?</h2>
-          <h3 className="display-3 mb-10 px-xl-10 px-xxl-15">
-            Co nas  <span className="underline-3 style-2 blue">wyróżnia?</span>
-          </h3>
-        </div>
+      <div className="text-center mb-12">
+        <p className="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-3">Dlaczego wybrać agregatypradu.pl?</p>
+        <h3 className="text-3xl lg:text-4xl font-bold text-gray-800">
+          Co nas <span className="text-blue-600 underline decoration-blue-300">wyróżnia?</span>
+        </h3>
       </div>
-      <div className="row gx-md-5 gy-5  mb-14 mb-md-17">
+      <div className="flex flex-wrap -mx-3">
         {serviceList11.map(({ id, Icon, linkUrl, ...item }) => (
           <ServiceCard1 {...item} key={id} linkUrl={linkUrl} Icon={Icon} />
         ))}
