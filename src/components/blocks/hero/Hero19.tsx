@@ -1,45 +1,103 @@
-import Link from "next/link";
+"use client";
+
+import { useEffect, useState, useCallback } from "react";
+import Image from "next/image";
+
+const slides = [
+  { src: "/img/photos/zdjecieWtle.png", alt: "Agregat prądotwórczy PlusPower" },
+  { src: "/img/photos/main_photo.jpg", alt: "Agregaty prądotwórcze" },
+  { src: "/img/photos/IMG_6274.jpg", alt: "Silnik RICARDO" },
+  { src: "/img/photos/IMG_6275.jpg", alt: "Agregat PlusPower 150 kW" },
+  { src: "/img/photos/IMG_6277.jpg", alt: "Agregat prądotwórczy" },
+  { src: "/img/photos/pluspower150kw_mainphoto.webp", alt: "PlusPower 150 kW" },
+];
 
 export default function Hero19() {
+  const [current, setCurrent] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const goTo = useCallback(
+    (index: number) => {
+      if (isTransitioning) return;
+      setIsTransitioning(true);
+      setCurrent((index + slides.length) % slides.length);
+      setTimeout(() => setIsTransitioning(false), 700);
+    },
+    [isTransitioning]
+  );
+
+  const prev = useCallback(() => goTo(current - 1), [current, goTo]);
+  const next = useCallback(() => goTo(current + 1), [current, goTo]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      goTo(current + 1);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [current, goTo]);
+
   return (
     <section
-      className="relative min-h-[600px] lg:min-h-[700px] flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: "url(/img/photos/zdjecieWtle.png)" }}
+      aria-label="Galeria agregatów prądotwórczych"
+      aria-roledescription="carousel"
+      className="relative w-full overflow-hidden"
+      style={{ height: "clamp(380px, 65vw, 700px)" }}
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-blue-900/60" />
-      
-      <div className="relative z-10 container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Moc, na którą możesz{" "}
-            <span className="text-blue-300 underline decoration-blue-400">liczyć</span>
-          </h1>
-          <p className="text-xl lg:text-2xl text-blue-100 mb-10 leading-relaxed">
-            Jesteśmy dystrybutorem agregatów prądotwórczych dużej mocy marki PlusPower
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/agregaty/agregat-pluspower-120-kw"
-              className="bg-blue-500 hover:bg-blue-400 text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-200 shadow-lg"
-            >
-              Poznaj nasze agregaty
-            </Link>
-            <Link
-              href="/kontakt"
-              className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-200"
-            >
-              Skontaktuj się
-            </Link>
-          </div>
+      {/* Slides */}
+      {slides.map((slide, i) => (
+        <div
+          key={i}
+          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+            i === current ? "opacity-100 z-10" : "opacity-0 z-0"
+          }`}
+        >
+          <Image
+            src={slide.src}
+            alt={slide.alt}
+            fill
+            className="object-cover"
+            priority={i === 0}
+            sizes="100vw"
+          />
         </div>
-      </div>
+      ))}
 
-      {/* Wave divider */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" className="text-white fill-current">
-          <path d="M0,0V60H1440V0A5771,5771,0,0,1,0,0Z" />
+      {/* Prev button */}
+      <button
+        onClick={prev}
+        aria-label="Poprzedni slajd"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-11 h-11 rounded-full bg-black/40 hover:bg-black/60 text-white transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+          <path fillRule="evenodd" d="M15.28 5.22a.75.75 0 010 1.06L9.56 12l5.72 5.72a.75.75 0 11-1.06 1.06l-6.25-6.25a.75.75 0 010-1.06l6.25-6.25a.75.75 0 011.06 0z" clipRule="evenodd" />
         </svg>
+      </button>
+
+      {/* Next button */}
+      <button
+        onClick={next}
+        aria-label="Następny slajd"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-11 h-11 rounded-full bg-black/40 hover:bg-black/60 text-white transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+          <path fillRule="evenodd" d="M8.72 18.78a.75.75 0 010-1.06L14.44 12 8.72 6.28a.75.75 0 111.06-1.06l6.25 6.25a.75.75 0 010 1.06l-6.25 6.25a.75.75 0 01-1.06 0z" clipRule="evenodd" />
+        </svg>
+      </button>
+
+      {/* Dot pagination */}
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            aria-label={`Slajd ${i + 1}`}
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 focus:outline-none ${
+              i === current
+                ? "bg-white scale-125 shadow-md"
+                : "bg-white/50 hover:bg-white/80"
+            }`}
+          />
+        ))}
       </div>
     </section>
   );
