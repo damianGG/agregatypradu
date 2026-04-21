@@ -21,7 +21,7 @@ export default function Hero19() {
       if (isTransitioning) return;
       setIsTransitioning(true);
       setCurrent((index + slides.length) % slides.length);
-      setTimeout(() => setIsTransitioning(false), 600);
+      setTimeout(() => setIsTransitioning(false), 700);
     },
     [isTransitioning]
   );
@@ -37,7 +37,12 @@ export default function Hero19() {
   }, [current, goTo]);
 
   return (
-    <section className="relative w-full overflow-hidden" style={{ height: "clamp(380px, 65vw, 700px)" }}>
+    <section
+      aria-label="Galeria agregatów prądotwórczych"
+      aria-roledescription="carousel"
+      className="relative w-full overflow-hidden"
+      style={{ height: "clamp(380px, 65vw, 700px)" }}
+    >
       {/* Slides */}
       {slides.map((slide, i) => (
         <div
