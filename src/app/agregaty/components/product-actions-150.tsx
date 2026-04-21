@@ -1,113 +1,67 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-// CUSTOM DATA
-import data from "@/data/product-details-page";
 import Link from "next/link";
 
 export default function ProductActions150() {
-
-
-
-
   return (
-    <div className="col-lg-6">
-      <div className="post-header mb-5">
-        <h2 className="post-title display-5">
-          <a href="#" className="link-dark">
-            Agregat Plus Power 150 kW
-          </a>
-        </h2>
-
-        <p className="price fs-20 mb-2">
-          <span className="amount">95 000 zł</span>
-        </p>
-
-        {/* <a href="#" className="link-body ratings-wrapper">
-          <span className="ratings five" />
-          <span>(25 Ocen)</span>
-        </a> */}
+    <div className="w-full lg:w-1/2 flex flex-col gap-6">
+      <div>
+        <h1 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-2">
+          Agregat Plus Power 150 kW
+        </h1>
+        <p className="text-3xl font-bold text-blue-600">95 000 zł</p>
       </div>
 
-      <p className="mb-6">
-        Agregat Plus Power 150 kW to niezawodne źródło energii, idealne dla wymagających warunków. Jego kompaktowy design i wysoka wydajność sprawiają, że doskonale sprawdza się w zastosowaniach przemysłowych i budowlanych. Wytrzymałość i prostota obsługi gwarantują długotrwałe użytkowanie bez awarii.
+      <p className="text-gray-600 leading-relaxed">
+        Agregat Plus Power 150 kW to niezawodne źródło energii, idealne dla wymagających warunków. Jego
+        kompaktowy design i wysoka wydajność sprawiają, że doskonale sprawdza się w zastosowaniach
+        przemysłowych i budowlanych. Wytrzymałość i prostota obsługi gwarantują długotrwałe użytkowanie bez awarii.
       </p>
 
-      <form >
-        <fieldset className="picker">
-          <legend className="h6 fs-16 text-body mb-3">Dostępne moce agregatów:</legend>
+      <div>
+        <p className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">Dostępne moce agregatów:</p>
+        <div className="flex flex-wrap gap-3">
           <Link href="/agregaty/agregat-pluspower-150-kw">
-            <label htmlFor={`size-120`} key="120" style={{ inlineSize: "4rem", blockSize: "3rem" }}>
-              <input
-                type="radio"
-                name="sizes"
-                value="150kW"
-                id={`size-150`}
-                checked={true}
-              />
-              <span>150 kW</span>
-            </label>
+            <span className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg border-2 border-blue-600 bg-blue-600 text-white font-semibold text-sm">
+              150 kW
+            </span>
           </Link>
           <Link href="/agregaty/agregat-pluspower-120-kw">
-            <label htmlFor={`size-120`} key="120" style={{ inlineSize: "4rem", blockSize: "3rem" }}>
-              <input
-                type="radio"
-                name="sizes"
-                value="120kW"
-                id={`size-120`}
-                checked={false}
-              />
-              <span>120 kW</span>
-            </label>
+            <span className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg border-2 border-gray-300 text-gray-700 font-semibold text-sm hover:border-blue-400 transition-colors">
+              120 kW
+            </span>
           </Link>
-        </fieldset>
-        <fieldset className="picker">
-          <legend className="h6 fs-16 text-body mb-3">Dostępne moce agregatów pod zamówienie:</legend>
-          <label htmlFor={`size-120`} key="120" style={{ inlineSize: "4rem", blockSize: "2rem" }}>
-            <input
-              type="radio"
-              name="sizes"
-              value="150kW"
-              id={`size-150`}
-              checked={false}
-            />
-            <span>80 kW</span>
-          </label>
-          <label htmlFor={`size-120`} key="120" style={{ inlineSize: "4rem", blockSize: "2rem" }}>
-            <input
-              type="radio"
-              name="sizes"
-              value="120kW"
-              id={`size-120`}
-              checked={false}
-            />
-            <span>100 kW</span>
-          </label>
-          <label htmlFor={`size-120`} key="120" style={{ inlineSize: "4rem", blockSize: "2rem" }}>
-            <input
-              type="radio"
-              name="sizes"
-              value="150kW"
-              id={`size-150`}
-              checked={false}
-            />
-            <span>200 kW</span>
-          </label>
-
-        </fieldset>
-        <div className="row">
-          <div className="col-lg-9 d-flex flex-row pt-2">
-
-
-            <div className="flex-grow-1 ">
-              <button type="submit" className="btn btn-primary btn-icon btn-icon-start rounded w-100 flex-grow-1">
-                Zamów
-              </button>
-            </div>
-          </div>
-          <h3 className="mt-3">lub zadzwoń +48 606 392 657</h3>
         </div>
-      </form>
+      </div>
+
+      <div>
+        <p className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">Dostępne moce pod zamówienie:</p>
+        <div className="flex flex-wrap gap-3">
+          {["80 kW", "100 kW", "200 kW"].map((kw) => (
+            <span
+              key={kw}
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg border-2 border-dashed border-gray-300 text-gray-400 font-semibold text-sm"
+            >
+              {kw}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="pt-2">
+        <button
+          type="button"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3.5 px-8 rounded-full transition-colors duration-200 text-base mb-3"
+        >
+          Zamów
+        </button>
+        <p className="text-center text-gray-600">
+          lub zadzwoń{" "}
+          <a href="tel:+48606392657" className="text-blue-600 font-bold hover:underline">
+            +48 606 392 657
+          </a>
+        </p>
+      </div>
     </div>
   );
 }

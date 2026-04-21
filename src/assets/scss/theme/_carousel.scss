@@ -397,9 +397,13 @@
   &:not(.swiper-fullscreen) .swiper-thumbs {
     .swiper-slide {
       cursor: pointer;
-      opacity: 0.7;
+      opacity: 0.6;
+      transition: opacity 150ms ease-in-out;
       &.swiper-slide-thumb-active {
         opacity: 1;
+        > div {
+          border-color: $main-color !important;
+        }
       }
     }
   }
