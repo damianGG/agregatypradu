@@ -1,165 +1,111 @@
 "use client";
 
-import { Fragment, ReactElement, SetStateAction, useRef } from "react";
-// -------- CUSTOM HOOKS -------- //
-import useSticky from "@/hooks/useSticky";
-import useNestedDropdown from "@/hooks/useNestedDropdown";
-// -------- CUSTOM COMPONENTS -------- //
-//import NextLink from "@/components/reuseable/links/Link";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-// LOCAL CUSTOM COMPONENTS
-import HeaderRight from "../components/header-right";
-import FancyHeader from "../components/fancy-header";
 import LogoPower from "../../../../../public/img/power.svg";
-import Toplogo from "../top-logo/Toplogo";
-import DropdownToggleLink from "@/components/reuseable/links/DropdownToggleLink";
-import { blogsNavigation } from "@/data/navigation";
-import ListItemLink from "@/components/reuseable/links/ListItemLink";
-import renderLinks from "../components/render-links";
 
-// ===================================================================
-interface NavbarProps {
-  info?: boolean;
-  cart?: boolean;
-  fancy?: boolean;
-  logoAlt?: string;
-  search?: boolean;
-  social?: boolean;
-  language?: boolean;
-  stickyBox?: boolean;
-  navClassName?: string;
-  button?: ReactElement;
-  navOtherClass?: string;
-}
-// ===================================================================
-
-export default function NavbarOne({
-  fancy,
-  button,
-  logoAlt,
-  cart = false,
-  info = false,
-  social = false,
-  search = false,
-  language = false,
-  stickyBox = true,
-  navOtherClass = "navbar-other w-100 d-flex ms-auto",
-  navClassName = "navbar navbar-expand-lg center-nav transparent navbar-light",
-}: NavbarProps) {
-  useNestedDropdown();
-  const sticky = useSticky(350);
+export default function NavbarOne() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navbarRef = useRef<HTMLElement | null>(null);
 
-  // dynamically render the logo
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-
-  // dynamically added navbar className
-  const fixedClassName = "navbar navbar-expand-lg center-nav transparent navbar-light navbar-clone fixed ";
-
-  // all main header contents
-  const headerContent = (
-    <Fragment>
-      <div className="navbar-brand w-100">
-        <Link href="/" >
-
-          <p className="fs-20 mb-0 "
-            style={{
-              color: '#000',
-            }}
-          >
-            <Image
-              src={LogoPower}
-
-              alt="logo agregatyprady.pl"
-
-              style={{
-                width: '100%',
-                height: 'auto',
-                maxWidth: '50px',
-                display: 'inline-block',
-              }}
-            />
-            agregatypradu.pl
-          </p>
-        </Link>
-      </div>
-
-      <div id="offcanvas-nav" data-bs-scroll="true" className="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
-        <div className="offcanvas-header d-lg-none">
-          <h3 className="text-white fs-30 mb-0"></h3>
-          <button type="button" aria-label="Close" data-bs-dismiss="offcanvas" className="btn-close btn-close-white" />
-        </div>
-
-        <div className="offcanvas-body ms-lg-auto d-flex flex-column h-100">
-          <ul className="navbar-nav ">
-            {/* <PagesNavItem /> */}
-            <li><Link className="nav-link fs-20" href="/o-nas">O nas</Link></li>
-            <li><Link className="nav-link fs-20" href="/oferta">Oferta</Link></li>
-            <li><Link className="nav-link fs-20" href="/agregaty/agregat-pluspower-120-kw">Agregaty</Link></li>
-            {/* <li className="nav-item dropdown">
-              <DropdownToggleLink title="Agregaty" className="nav-link dropdown-toggle fs-20" />
-
-              <ul className="dropdown-menu">
-                {blogsNavigation.map(({ id, url, title, children }) => {
-                  if (!url && children) {
-                    return (
-                      <li className="dropdown dropdown-submenu dropend" key={id}>
-                        <DropdownToggleLink title={title} />
-                        <ul className="dropdown-menu">{renderLinks(children)}</ul>
-                      </li>
-                    );
-                  }
-                  return (
-                    <ListItemLink key={id} href={url || "#"} title={title} linkClassName="dropdown-item" />
-                  );
-                })}
-              </ul>
-            </li> */}
-            {/* <li><Link className="nav-link fs-20" href="/kontakt">Realizacje</Link></li> */}
-            <li><Link className="nav-link fs-20" href="/galeria">Galeria</Link></li>
-            <li><Link className="nav-link fs-20" href="/kontakt">Kontakt</Link></li>
-          </ul>
-          {/* ============= show contact info in the small device sidebar ============= */}
-          <div className="offcanvas-footer d-lg-none">
-            <div>
-              <Link title="info@email.com" className="link-inverse" href="mailto:first.last@email.com" />
-              <br />
-              <Link href="tel:0123456789" title="00 (123) 456 78 90" />
-              <br />
-              {/* <SocialLinks /> */}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ============= right side header content ============= */}
-      <HeaderRight
-        cart={cart}
-        info={info}
-        button={button}
-        search={search}
-        social={social}
-        language={language}
-        navOtherClass={navOtherClass}
-        colorModeSwitcher={false}
-      />
-    </Fragment>
-  );
+  const navLinks = [
+    { href: "/o-nas", label: "O nas" },
+    { href: "/oferta", label: "Oferta" },
+    { href: "/agregaty/agregat-pluspower-120-kw", label: "Agregaty" },
+    { href: "/galeria", label: "Galeria" },
+    { href: "/kontakt", label: "Kontakt" },
+  ];
 
   return (
-    <Fragment>
-      {/* <Toplogo /> */}
-      {stickyBox ? <div style={{ paddingTop: sticky ? navbarRef.current?.clientHeight : 0 }} /> : null}
+    <>
+      <div style={{ paddingTop: isScrolled ? navbarRef.current?.clientHeight ?? 0 : 0 }} />
+      <nav
+        ref={navbarRef}
+        className={`w-full z-50 transition-all duration-300 ${
+          isScrolled
+            ? "fixed top-0 left-0 right-0 bg-white shadow-lg"
+            : "absolute top-0 left-0 right-0 bg-white/95 backdrop-blur-sm"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 lg:h-20">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+              <Image
+                src={LogoPower}
+                alt="logo agregatyprady.pl"
+                style={{ width: 40, height: 40 }}
+              />
+              <span className="text-lg font-bold text-blue-700">agregatypradu.pl</span>
+            </Link>
 
-      <nav ref={navbarRef} className={sticky ? fixedClassName : navClassName}>
-        {fancy ? (
-          <FancyHeader>{headerContent}</FancyHeader>
-        ) : (
-          <div className="container flex-lg-row flex-nowrap align-items-center">{headerContent}</div>
+            {/* Desktop Nav */}
+            <div className="hidden lg:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 text-sm"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                href="/kontakt"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-medium transition-colors duration-200 text-sm"
+              >
+                Zapytaj o ofertę
+              </Link>
+            </div>
 
+            {/* Mobile hamburger */}
+            <button
+              className="lg:hidden flex flex-col gap-1.5 p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <span className={`block w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
+              <span className={`block w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isMenuOpen ? "opacity-0" : ""}`} />
+              <span className={`block w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile menu */}
+        {isMenuOpen && (
+          <div className="lg:hidden bg-white border-t border-gray-100 shadow-lg">
+            <div className="px-4 py-4 flex flex-col gap-3">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-50 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                href="/kontakt"
+                className="bg-blue-600 text-white text-center px-5 py-2.5 rounded-full font-medium mt-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Zapytaj o ofertę
+              </Link>
+            </div>
+          </div>
         )}
       </nav>
-    </Fragment>
+    </>
   );
 }

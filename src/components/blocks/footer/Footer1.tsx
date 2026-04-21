@@ -1,107 +1,75 @@
-import SocialLinks from "@/components/reuseable/SocialLinks";
-import NextLink from "@/components/reuseable/links/NextLink";
-// CUSTOM DATA
+import Link from "next/link";
 import footerNav from "@/data/footer";
 
 export default function Footer1() {
   return (
-    <footer className="bg-navy text-inverse">
-      <div className="container pt-15 pt-md-17 pb-13 pb-md-15">
-        <div className="d-lg-flex flex-row align-items-lg-center">
-          <h3 className="display-4 mb-6 mb-lg-0 pe-lg-20 pe-xl-22 pe-xxl-25 text-white">
-            Umów się na darmową konsultację, znajdzimy rozwiązanie dla Ciebie.
+    <footer className="bg-blue-900 text-white">
+      {/* CTA Banner */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+        <div className="bg-blue-800 rounded-2xl p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-6 mb-12">
+          <h3 className="text-2xl lg:text-3xl font-bold text-white max-w-xl">
+            Umów się na darmową konsultację, znajdziemy rozwiązanie dla Ciebie.
           </h3>
-
-          <NextLink href="/kontakt" title="Kontakt" className="btn btn-primary rounded-pill mb-0 text-nowrap" />
+          <Link
+            href="/kontakt"
+            className="bg-white text-blue-800 hover:bg-blue-50 px-8 py-3 rounded-full font-semibold whitespace-nowrap transition-colors duration-200"
+          >
+            Kontakt
+          </Link>
         </div>
 
-        <hr className="mt-11 mb-12" />
-
-        <div className="row gy-6 gy-lg-0">
-          <div className="col-md-4 col-lg-3">
-            <div className="widget">
-              <img className="mb-4" src="/img/logo-light.png" srcSet="/img/logo-light@2x.png 2x" alt="" />
-
-              <p className="mb-4">
-                © 2024 agregatypradu.pl <br className="d-none d-lg-block" />
-                All rights reserved.
-              </p>
-
-              <SocialLinks className="nav social social-white" />
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 border-t border-blue-800 pt-10">
+          {/* Brand */}
+          <div>
+            <p className="font-bold text-xl text-white mb-2">agregatypradu.pl</p>
+            <p className="text-blue-200 text-sm leading-relaxed">
+              © 2024 agregatypradu.pl<br />All rights reserved.
+            </p>
           </div>
 
-          <div className="col-md-4 col-lg-3">
-            <div className="widget">
-              <h4 className="widget-title text-white mb-3">Zostańmy w kontakcie</h4>
-              <address className="pe-xl-15 pe-xxl-17">Sielec 1A, 39-120 Sędziszów Młp. Poland</address>
-              <NextLink title="biuro@agregatypradu.pl" href="mailto:biuro@agregatypradu.pl" />
-              <br />+48 606 392 657
-            </div>
+          {/* Contact */}
+          <div>
+            <h4 className="font-semibold text-white mb-4">Zostańmy w kontakcie</h4>
+            <address className="text-blue-200 text-sm not-italic leading-relaxed">
+              Sielec 1A, 39-120 Sędziszów Młp. Poland
+            </address>
+            <Link href="mailto:biuro@agregatypradu.pl" className="text-blue-300 hover:text-white text-sm block mt-2 transition-colors">
+              biuro@agregatypradu.pl
+            </Link>
+            <p className="text-blue-200 text-sm mt-1">+48 606 392 657</p>
           </div>
 
-          <div className="col-md-4 col-lg-3">
-            <div className="widget">
-              <h4 className="widget-title text-white mb-3">Dowiedz się więcej</h4>
-              <ul className="list-unstyled  mb-0">
-                {footerNav.map(({ title, url }) => (
-                  <li key={title}>
-                    <NextLink title={title} href={url} />
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Links */}
+          <div>
+            <h4 className="font-semibold text-white mb-4">Dowiedz się więcej</h4>
+            <ul className="space-y-2">
+              {footerNav.map(({ title, url }) => (
+                <li key={title}>
+                  <Link href={url} className="text-blue-200 hover:text-white text-sm transition-colors">
+                    {title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="col-md-12 col-lg-3">
-            <div className="widget">
-              <h4 className="widget-title text-white mb-3">Newsletter</h4>
-              <p className="mb-5">Subskrybuj nasz newsletter by być na bierząco z nowościami.</p>
-
-              <div className="newsletter-wrapper">
-                <div id="mc_embed_signup2">
-                  <form
-                    method="post"
-                    target="_blank"
-                    className="validate dark-fields"
-                    id="mc-embedded-subscribe-form2"
-                    name="mc-embedded-subscribe-form"
-                    action="https://elemisfreebies.us20.list-manage.com/subscribe/post?u=aa4947f70a475ce162057838d&amp;id=b49ef47a9a">
-                    <div id="mc_embed_signup_scroll2">
-                      <div className="mc-field-group input-group form-floating">
-                        <input
-                          type="email"
-                          name="EMAIL"
-                          id="mce-EMAIL2"
-                          placeholder="Email Address"
-                          className="required email form-control"
-                        />
-
-                        <label htmlFor="mce-EMAIL2">Email Address</label>
-                        <input
-                          value="Zapisz się"
-                          type="submit"
-                          name="subscribe"
-                          id="mc-embedded-subscribe2"
-                          className="btn btn-primary"
-                        />
-                      </div>
-
-                      <div id="mce-responses2" className="clear">
-                        <div className="response" id="mce-error-response2" style={{ display: "none" }} />
-                        <div className="response" id="mce-success-response2" style={{ display: "none" }} />
-                      </div>
-
-                      <div style={{ position: "absolute", left: "-5000px" }} aria-hidden="true">
-                        <input type="text" tabIndex={-1} name="b_ddc180777a163e0f9f66ee014_4b1bcfa0bc" />
-                      </div>
-
-                      <div className="clear" />
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
+          {/* Newsletter */}
+          <div>
+            <h4 className="font-semibold text-white mb-4">Newsletter</h4>
+            <p className="text-blue-200 text-sm mb-4">Subskrybuj nasz newsletter by być na bieżąco z nowościami.</p>
+            <form className="flex gap-2">
+              <input
+                type="email"
+                placeholder="Twój e-mail"
+                className="flex-1 px-3 py-2 rounded-lg bg-blue-800 border border-blue-700 text-white placeholder-blue-400 text-sm focus:outline-none focus:border-blue-400"
+              />
+              <button
+                type="submit"
+                className="bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+              >
+                OK
+              </button>
+            </form>
           </div>
         </div>
       </div>
