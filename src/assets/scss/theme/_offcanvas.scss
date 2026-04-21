@@ -69,3 +69,58 @@
   margin-top: auto;
   padding: $offcanvas-padding-y 0;
 }
+
+//----------------------------------------------------------//
+//	MOBILE NAV – ANIMATED LIST ITEMS
+//----------------------------------------------------------//
+@media (max-width: 991.98px) {
+  // Slide-in animation for the offcanvas panel itself
+  .offcanvas-nav {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
+  // Each nav item slides in from the left with a stagger delay
+  .mobile-nav-list {
+    .mobile-nav-item {
+      opacity: 0;
+      transform: translateX(-24px);
+      animation: mobileNavItemIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+      @for $i from 1 through 10 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{$i * 0.06}s;
+        }
+      }
+
+      .nav-link {
+        padding: 0.85rem 1.5rem;
+        border-radius: 0.5rem;
+        transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+        &:hover,
+        &:focus {
+          background: rgba($primary, 0.08);
+          transform: translateX(4px);
+        }
+
+        &:active {
+          background: rgba($primary, 0.15);
+        }
+      }
+    }
+  }
+
+  @keyframes mobileNavItemIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  // Reset animation when offcanvas is hidden so it replays on next open
+  .offcanvas:not(.show) .mobile-nav-list .mobile-nav-item {
+    animation: none;
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+}
