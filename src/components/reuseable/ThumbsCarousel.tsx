@@ -58,7 +58,7 @@ export default function ThumbsCarousel() {
         {slideImages.map(({ url, id, fullImage }) => (
           <SwiperSlide key={id}>
             <figure className="rounded">
-              <Image width={610} height={455} src={url} alt="product" className="w-100 " />
+              <Image width={610} height={455} src={url} alt="product" className="w-full" />
               <a className="item-link" href={fullImage} data-glightbox data-gallery="product-group">
                 <i className="uil uil-focus-add" />
               </a>
@@ -85,7 +85,7 @@ export default function ThumbsCarousel() {
         modules={[FreeMode, Navigation, Thumbs]}>
         {thumbImages.map(({ url, id }) => (
           <SwiperSlide key={id}>
-            <Image width={114} height={120} src={url} alt="product" className="w-100 h-auto" />
+            <Image width={114} height={120} src={url} alt="product" className="w-full h-auto" />
           </SwiperSlide>
         ))}
       </SwiperCarousel>
