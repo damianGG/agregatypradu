@@ -165,7 +165,7 @@ export default function ProductDescription() {
                     width={600}
                     height={420}
                     alt={spec.imageAlt}
-                    className="w-full h-64 sm:h-72 object-cover"
+                    className="w-full h-64 sm:h-72 object-contain bg-gray-50"
                   />
                 </figure>
               </div>
