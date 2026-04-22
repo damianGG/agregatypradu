@@ -381,7 +381,7 @@ export const serviceList11 = [
   },
   {
     id: 2,
-    linkUrl: '/serwis-i-naprawa',
+    linkUrl: '/doradztwo-techniczne',
     Icon: TeamTwo,
     title: 'Doradztwo techniczne',
     linkType: LinkType.violet,
@@ -390,7 +390,7 @@ export const serviceList11 = [
   },
   {
     id: 3,
-    linkUrl: '/opieka-24-7',
+    linkUrl: '/pierwsze-uruchomienie',
     Icon: Lamp,
     linkType: LinkType.orange,
     title: 'Pierwsze uruchomienie',
