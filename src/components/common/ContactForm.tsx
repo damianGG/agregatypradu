@@ -3,45 +3,45 @@ export default function ContactForm() {
     <form className="space-y-6" method="post">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="form_name" className="block text-sm font-medium text-gray-700 mb-2">Imię *</label>
+          <label htmlFor="form_name" className="block text-sm font-medium text-slate-800 mb-2">Imię *</label>
           <input
             required
             type="text"
             name="name"
             id="form_name"
             placeholder="Jan"
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 transition focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-700"
           />
         </div>
         <div>
-          <label htmlFor="form_lastname" className="block text-sm font-medium text-gray-700 mb-2">Nazwisko *</label>
+          <label htmlFor="form_lastname" className="block text-sm font-medium text-slate-800 mb-2">Nazwisko *</label>
           <input
             required
             type="text"
             name="surname"
             id="form_lastname"
             placeholder="Kowalski"
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 transition focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-700"
           />
         </div>
         <div>
-          <label htmlFor="form_email" className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+          <label htmlFor="form_email" className="block text-sm font-medium text-slate-800 mb-2">Email *</label>
           <input
             required
             type="email"
             name="email"
             id="form_email"
             placeholder="jan@example.com"
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+            className="w-full rounded-xl border border-slate-300 px-4 py-3 transition focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-700"
           />
         </div>
         <div>
-          <label htmlFor="form-select" className="block text-sm font-medium text-gray-700 mb-2">Temat</label>
+          <label htmlFor="form-select" className="block text-sm font-medium text-slate-800 mb-2">Temat</label>
           <select
             id="form-select"
             name="department"
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition bg-white"
+            className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 transition focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-700"
           >
             <option disabled value="">Wybierz temat</option>
             <option value="Sprzedaz">Sprzedaż</option>
@@ -51,20 +51,20 @@ export default function ContactForm() {
         </div>
       </div>
       <div>
-        <label htmlFor="form_message" className="block text-sm font-medium text-gray-700 mb-2">Wiadomość *</label>
+        <label htmlFor="form_message" className="block text-sm font-medium text-slate-800 mb-2">Wiadomość *</label>
         <textarea
           required
           name="message"
           id="form_message"
           placeholder="Twoja wiadomość..."
           rows={6}
-          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
+          className="w-full resize-none rounded-xl border border-slate-300 px-4 py-3 transition focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-700"
         />
       </div>
       <div className="text-center">
         <button
           type="submit"
-          className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-3 rounded-full font-semibold text-lg transition-colors duration-200 shadow-lg"
+          className="rounded-full bg-blue-700 px-12 py-3 text-lg font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-blue-800"
         >
           Wyślij wiadomość
         </button>

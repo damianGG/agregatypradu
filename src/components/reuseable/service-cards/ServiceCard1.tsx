@@ -23,13 +23,13 @@ export default function ServiceCard1({
 }: ServiceCard1Props) {
   return (
     <div className="w-full md:w-1/2 xl:w-1/4 px-3 mb-6">
-      <div className={`bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 h-full border border-blue-50 ${cardClassName}`}>
+      <div className={`h-full rounded-2xl border border-slate-200 bg-white p-6 shadow-lg transition-shadow duration-300 hover:shadow-xl ${cardClassName}`}>
         <div className="mb-4">
-          <Icon className={`w-12 h-12 text-blue-600 ${iconClassName}`} />
+          <Icon className={`h-12 w-12 text-blue-800 ${iconClassName}`} />
         </div>
-        <h4 className="text-lg font-bold text-gray-800 mb-3">{title}</h4>
-        <p className="text-gray-600 text-sm leading-relaxed mb-4">{description}</p>
-        <Link href={linkUrl} className="text-blue-600 hover:text-blue-700 font-medium text-sm inline-flex items-center gap-1 transition-colors">
+        <h4 className="mb-3 text-lg font-bold text-slate-900">{title}</h4>
+        <p className="mb-4 text-sm leading-relaxed text-slate-600">{description}</p>
+        <Link href={linkUrl} className="inline-flex items-center gap-1 text-sm font-medium text-blue-800 transition-colors hover:text-blue-600">
           Czytaj więcej →
         </Link>
       </div>

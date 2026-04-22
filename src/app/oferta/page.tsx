@@ -36,7 +36,7 @@ const services = [
     bg: "bg-white",
   },
   {
-    title: "Wsparcie techniczne i konsultacje",
+    title: "Doradztwo techniczne",
     image: "/img/photos/doradztwo.jpg",
     items: [
       "Nasza firma oferuje pełne wsparcie techniczne dla wszystkich naszych klientów.",
@@ -73,10 +73,10 @@ export default function Oferta() {
         className="relative min-h-[300px] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: "url(/img/photos/bg3.jpg)" }}
       >
-        <div className="absolute inset-0 bg-blue-900/60" />
+        <div className="absolute inset-0 bg-slate-950/75" />
         <div className="relative z-10 text-center px-4 py-20">
           <h1 className="text-4xl lg:text-5xl font-bold text-white">Oferta</h1>
-          <p className="mt-4 text-blue-100 text-lg max-w-xl mx-auto">
+          <p className="mt-4 text-slate-200 text-lg max-w-xl mx-auto leading-relaxed">
             Kompleksowe usługi dla Twojej infrastruktury energetycznej
           </p>
         </div>
@@ -86,10 +86,10 @@ export default function Oferta() {
       <section className="bg-white py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block bg-blue-100 text-blue-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+            <span className="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
               Co oferujemy
             </span>
-            <p className="text-gray-700 text-lg leading-relaxed">
+            <p className="text-slate-700 text-lg leading-relaxed">
               Jako wiodący dystrybutor agregatów prądotwórczych dużej mocy oferujemy kompleksowe usługi,
               które gwarantują nieprzerwaną pracę Twojej infrastruktury — od doboru sprzętu, przez montaż,
               aż po długoletni serwis.
@@ -101,12 +101,12 @@ export default function Oferta() {
             {services.map((s, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center text-center gap-2 bg-blue-50 rounded-2xl p-4"
+                className="flex flex-col items-center text-center gap-2 rounded-2xl border border-blue-100 bg-white p-4 shadow-sm"
               >
-                <span className="w-9 h-9 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center flex-shrink-0">
+                <span className="w-9 h-9 rounded-full bg-blue-800 text-white text-sm font-bold flex items-center justify-center flex-shrink-0">
                   {idx + 1}
                 </span>
-                <span className="text-gray-700 text-sm font-semibold leading-snug">{s.title}</span>
+                <span className="text-slate-700 text-sm font-semibold leading-snug">{s.title}</span>
               </div>
             ))}
           </div>
@@ -138,21 +138,21 @@ export default function Oferta() {
               {/* Content */}
               <div className="w-full lg:w-1/2">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="w-10 h-10 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center flex-shrink-0">
+                  <span className="w-10 h-10 rounded-full bg-blue-800 text-white text-sm font-bold flex items-center justify-center flex-shrink-0">
                     {idx + 1}
                   </span>
                   <div className="h-px flex-1 bg-blue-200" />
                 </div>
-                <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6">
+                <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-6">
                   {service.title}
                 </h2>
                 <ul className="space-y-4">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mt-0.5">
+                      <span className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-800 rounded-full flex items-center justify-center mt-0.5">
                         <CheckIcon />
                       </span>
-                      <span className="text-gray-600 leading-relaxed">{item}</span>
+                      <span className="text-slate-700 leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -163,17 +163,17 @@ export default function Oferta() {
       ))}
 
       {/* CTA */}
-      <section className="bg-blue-700 py-16 lg:py-20">
+      <section className="bg-slate-950 py-16 lg:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
             Skontaktuj się z nami
           </h2>
-          <p className="text-blue-100 text-lg mb-8 leading-relaxed">
+          <p className="text-slate-200 text-lg mb-8 leading-relaxed">
             Masz pytania dotyczące naszej oferty? Nasz zespół jest do Twojej dyspozycji — odpowiemy na każde pytanie i pomożemy dobrać najlepsze rozwiązanie.
           </p>
           <Link
             href="/kontakt"
-            className="inline-block bg-white hover:bg-blue-50 text-blue-700 font-semibold px-8 py-3 rounded-full transition-colors duration-200"
+            className="inline-block bg-blue-500 hover:bg-blue-400 text-white font-semibold px-8 py-3 rounded-full transition-colors duration-200"
           >
             Napisz do nas
           </Link>
