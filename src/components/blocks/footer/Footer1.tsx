@@ -3,26 +3,26 @@ import footerNav from "@/data/footer";
 
 export default function Footer1() {
   return (
-    <footer className="bg-blue-900 text-white">
+    <footer className="bg-slate-950 text-white">
       {/* CTA Banner */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-        <div className="bg-blue-800 rounded-2xl p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-6 mb-12">
+        <div className="mb-12 flex flex-col items-center justify-between gap-6 rounded-2xl bg-blue-900 p-8 lg:flex-row lg:p-12">
           <h3 className="text-2xl lg:text-3xl font-bold text-white max-w-xl">
             Umów się na darmową konsultację, znajdziemy rozwiązanie dla Ciebie.
           </h3>
           <Link
             href="/kontakt"
-            className="bg-white text-blue-800 hover:bg-blue-50 px-8 py-3 rounded-full font-semibold whitespace-nowrap transition-colors duration-200"
+            className="whitespace-nowrap rounded-full bg-white px-8 py-3 font-semibold text-slate-950 transition-colors duration-200 hover:bg-slate-100"
           >
             Kontakt
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 border-t border-blue-800 pt-10">
+        <div className="grid grid-cols-1 gap-8 border-t border-slate-800 pt-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
             <p className="font-bold text-xl text-white mb-2">agregatypradu.pl</p>
-            <p className="text-blue-200 text-sm leading-relaxed">
+            <p className="text-slate-300 text-sm leading-relaxed">
               © 2024 agregatypradu.pl<br />All rights reserved.
             </p>
           </div>
@@ -30,13 +30,13 @@ export default function Footer1() {
           {/* Contact */}
           <div>
             <h4 className="font-semibold text-white mb-4">Zostańmy w kontakcie</h4>
-            <address className="text-blue-200 text-sm not-italic leading-relaxed">
+            <address className="text-slate-300 text-sm not-italic leading-relaxed">
               Sielec 1A, 39-120 Sędziszów Młp. Poland
             </address>
             <Link href="mailto:biuro@agregatypradu.pl" className="text-blue-300 hover:text-white text-sm block mt-2 transition-colors">
               biuro@agregatypradu.pl
             </Link>
-            <p className="text-blue-200 text-sm mt-1">+48 606 392 657</p>
+            <p className="text-slate-300 text-sm mt-1">+48 606 392 657</p>
           </div>
 
           {/* Links */}
@@ -45,7 +45,7 @@ export default function Footer1() {
             <ul className="space-y-2">
               {footerNav.map(({ title, url }) => (
                 <li key={title}>
-                  <Link href={url} className="text-blue-200 hover:text-white text-sm transition-colors">
+                  <Link href={url} className="text-slate-300 hover:text-white text-sm transition-colors">
                     {title}
                   </Link>
                 </li>
@@ -56,16 +56,16 @@ export default function Footer1() {
           {/* Newsletter */}
           <div>
             <h4 className="font-semibold text-white mb-4">Newsletter</h4>
-            <p className="text-blue-200 text-sm mb-4">Subskrybuj nasz newsletter by być na bieżąco z nowościami.</p>
+            <p className="text-slate-300 text-sm mb-4">Subskrybuj nasz newsletter by być na bieżąco z nowościami.</p>
             <form className="flex gap-2">
               <input
                 type="email"
                 placeholder="Twój e-mail"
-                className="flex-1 px-3 py-2 rounded-lg bg-blue-800 border border-blue-700 text-white placeholder-blue-400 text-sm focus:outline-none focus:border-blue-400"
+                className="flex-1 rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-blue-400 focus:outline-none"
               />
               <button
                 type="submit"
-                className="bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                className="rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-400"
               >
                 OK
               </button>

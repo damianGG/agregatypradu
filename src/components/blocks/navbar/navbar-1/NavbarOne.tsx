@@ -34,7 +34,7 @@ export default function NavbarOne() {
         className={`w-full z-50 transition-all duration-300 ${
           isScrolled
             ? "fixed top-0 left-0 right-0 bg-white shadow-lg"
-            : "absolute top-0 left-0 right-0 bg-white/95 backdrop-blur-sm"
+            : "absolute top-0 left-0 right-0 bg-white/95 shadow-sm backdrop-blur-sm"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,7 +46,7 @@ export default function NavbarOne() {
                 alt="logo agregatyprady.pl"
                 style={{ width: 40, height: 40 }}
               />
-              <span className="text-lg font-bold text-blue-700">agregatypradu.pl</span>
+              <span className="text-lg font-bold text-blue-900">agregatypradu.pl</span>
             </Link>
 
             {/* Desktop Nav */}
@@ -55,14 +55,14 @@ export default function NavbarOne() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 text-sm"
+                  className="text-slate-800 hover:text-blue-700 font-medium transition-colors duration-200 text-sm"
                 >
                   {link.label}
                 </Link>
               ))}
               <Link
                 href="/kontakt"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-medium transition-colors duration-200 text-sm"
+                className="bg-blue-700 hover:bg-blue-800 text-white px-5 py-2 rounded-full font-medium transition-colors duration-200 text-sm"
               >
                 Zapytaj o ofertę
               </Link>
@@ -74,30 +74,30 @@ export default function NavbarOne() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
-              <span className={`block w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
-              <span className={`block w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isMenuOpen ? "opacity-0" : ""}`} />
-              <span className={`block w-6 h-0.5 bg-gray-700 transition-all duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+              <span className={`block w-6 h-0.5 bg-slate-800 transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
+              <span className={`block w-6 h-0.5 bg-slate-800 transition-all duration-300 ${isMenuOpen ? "opacity-0" : ""}`} />
+              <span className={`block w-6 h-0.5 bg-slate-800 transition-all duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
             </button>
           </div>
         </div>
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-100 shadow-lg">
-            <div className="px-4 py-4 flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-gray-700 hover:text-blue-600 font-medium py-2 border-b border-gray-50 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
+            <div className="lg:hidden bg-white border-t border-slate-200 shadow-lg">
+              <div className="px-4 py-4 flex flex-col gap-3">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="border-b border-slate-100 py-2 font-medium text-slate-800 transition-colors hover:text-blue-700"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
                   {link.label}
                 </Link>
               ))}
               <Link
                 href="/kontakt"
-                className="bg-blue-600 text-white text-center px-5 py-2.5 rounded-full font-medium mt-2"
+                className="mt-2 rounded-full bg-blue-700 px-5 py-2.5 text-center font-medium text-white"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Zapytaj o ofertę
