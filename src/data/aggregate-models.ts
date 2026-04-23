@@ -76,7 +76,7 @@ const aggregateModels: AggregateModel[] = [
   },
 ];
 
-export function findAggregateModelByPower(power: number) {
+export function findAggregateModelByPower(power: number): AggregateModel | undefined {
   return aggregateModels.find((model) => model.power === power);
 }
 

@@ -16,7 +16,7 @@ interface ProductCardProps {
 
 export default function ProductCard(props: ProductCardProps) {
   const { image, title, new: newProduct, sale, category, salePrice, regularPrice, rating, className = "", power, slug } = props;
-  const href = slug ? `/agregaty/${slug}` : `/agregaty/agregat-pluspower-${power}-kw`;
+  const href = slug ? `/agregaty/${slug}` : power ? `/agregaty/agregat-pluspower-${power}-kw` : "/agregaty";
 
   return (
     <div className={`group ${className}`}>
