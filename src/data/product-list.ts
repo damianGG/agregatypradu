@@ -1,8 +1,10 @@
 import aggregateModels from "./aggregate-models";
 
+const NEW_PRODUCT_POWER_THRESHOLD = 100;
+
 const products = aggregateModels.map((model) => ({
   rating: 5,
-  new: model.power >= 100,
+  new: model.power >= NEW_PRODUCT_POWER_THRESHOLD,
   sale: false,
   salePrice: 0,
   regularPrice: model.price ?? 0,
