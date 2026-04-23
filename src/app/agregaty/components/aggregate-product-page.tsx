@@ -56,7 +56,7 @@ export default function AggregateProductPage({ model }: AggregateProductPageProp
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
             {relatedProducts.map((item) => (
-              <ProductCard {...item} key={item.slug} />
+              <ProductCard {...item} key={item.id} />
             ))}
           </div>
         </div>
