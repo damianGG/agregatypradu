@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import aggregateModels from "@/data/aggregate-models";
 import AggregateProductPage, { buildAggregateMetadata } from "../../components/aggregate-product-page";
 
-const model = aggregateModels.find((item) => item.power === 150)!;
+const model = aggregateModels.find((item) => item.power === 50)!;
 
 export const metadata: Metadata = buildAggregateMetadata(model);
 

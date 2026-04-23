@@ -20,7 +20,7 @@ export default function Hero19() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/agregaty/agregat-pluspower-120-kw"
+              href="/agregaty"
               className="bg-blue-500 hover:bg-blue-400 text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-200 shadow-lg"
             >
               Poznaj nasze agregaty

@@ -1,42 +1,17 @@
-const products = [
-  {
-    rating: 5,
-    new: true,
-    sale: false,
-    salePrice: 0,
-    regularPrice: 35700,
-    category: '',
-    title: 'PlusPower 40kW',
-    image: 'pluspower150kw_mainphoto',
-    id: '62f3bac114a90b9c05bce066',
-    power: '40',
-  },
-  {
-    rating: 5,
-    new: true,
-    sale: false,
-    salePrice: 0,
-    regularPrice: 59900,
-    category: '',
-    title: 'PlusPower 120kW',
-    image: 'pluspower150kw_mainphoto',
-    id: '62f3bad7afb837063e6e3de6',
-    power: '120',
-  },
+import aggregateModels from "./aggregate-models";
 
- 
-  // {
-  //   rating: 5,
-  //   new: true,
-  //   sale: false,
-  //   salePrice: 0,
-  //   regularPrice: 75500,
-  //   category: '',
-  //   title: 'PlusPower 200kW',
-  //   image: 'pluspower150kw_mainphoto',
-  //   id: '62f3bb3a8ee7c0fd2d072f52',
-  //   power: '200',
-  // },
-];
+const products = aggregateModels.map((model) => ({
+  rating: 5,
+  new: model.power >= 100,
+  sale: false,
+  salePrice: 0,
+  regularPrice: model.price ?? 0,
+  category: `${model.kva} kVA`,
+  title: model.title,
+  image: model.image,
+  id: model.slug,
+  power: model.power.toString(),
+  slug: model.slug,
+}));
 
 export default products;

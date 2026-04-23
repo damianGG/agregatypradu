@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { AggregateModel } from "@/data/aggregate-models";
 
 const CheckIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 flex-shrink-0">
@@ -11,123 +12,61 @@ const CheckIcon = () => (
 
 const specs = [
   {
-    heading: "Parametry Elektryczne",
+    heading: "Zastosowanie i wydajność",
     image: "/img/photos/1.png",
-    imageAlt: "parametry elektryczne",
+    imageAlt: "zastosowanie agregatu",
     imageRight: false,
     items: [
-      "Moc maksymalna: 188 kVA (150 kW)",
-      "Moc znamionowa: 170 kVA (135 kW)",
-      "Napięcie: 230/400V",
-      "Prąd znamionowy: 244 A",
-      "Częstotliwość: 50 Hz",
-      "Ilość faz: 3",
+      "Agregaty PlusPower sprawdzają się jako zasilanie awaryjne oraz podstawowe.",
+      "Dobieramy rozwiązanie do obiektów przemysłowych, magazynowych i budowlanych.",
+      "Stabilna praca pozwala zabezpieczyć kluczowe procesy w firmie.",
+      "Modele są przystosowane do wielogodzinnej eksploatacji w wymagających warunkach.",
     ],
   },
   {
-    heading: "Wymiary i Waga",
+    heading: "Silnik i podzespoły",
     image: "/img/photos/pluspower150kw_mainphoto-removebg-preview.png",
-    imageAlt: "wymiary agregatu",
+    imageAlt: "podzespoły agregatu",
     imageRight: true,
     items: [
-      "Długość: 3105 mm",
-      "Szerokość: 1145 mm",
-      "Wysokość: 1455 mm",
-      "Waga: 1980 kg",
+      "Stawiamy na sprawdzone komponenty zapewniające wysoką niezawodność.",
+      "Agregaty są projektowane z myślą o łatwym serwisie i wygodnej obsłudze.",
+      "Każdy model może zostać dopasowany do potrzeb konkretnej inwestycji.",
+      "Szczegółowa konfiguracja techniczna zostanie rozpisana dla każdej mocy osobno.",
     ],
   },
   {
-    heading: "Dane Silnika",
+    heading: "Obsługa i wsparcie",
     image: "/img/photos/IMG_6274.jpg",
-    imageAlt: "dane silnika",
+    imageAlt: "wsparcie techniczne agregatu",
     imageRight: false,
     items: [
-      "Model: NM6108ZLDS",
-      "Typ: Wysokoprężny, wolnossący",
-      "Pojemność skokowa: 7,42 l",
-      "Ilość cylindrów: 6",
-      "Moc silnika: 167 kW",
-      "Rodzaj rozruchu: Elektryczny",
+      "Pomagamy w doborze mocy, konfiguracji i przygotowaniu oferty.",
+      "Zapewniamy transport, uruchomienie i opiekę serwisową.",
+      "Możesz szybko zamówić wycenę lub skonsultować wymagania techniczne.",
+      "Dla każdego modelu przygotujemy osobną kartę parametrów w kolejnym etapie prac.",
     ],
   },
-  {
-    heading: "Parametry Eksploatacyjne",
-    image: "/img/photos/6.png",
-    imageAlt: "parametry eksploatacyjne",
-    imageRight: true,
-    items: [
-      "Zużycie paliwa (50% obciążenia): 22 l/h",
-      "Zużycie paliwa (75% obciążenia): 31 l/h",
-      "Zużycie paliwa (100% obciążenia): 41 l/h",
-      "Poziom hałasu: 108 dB(A)",
-    ],
-  },
-  {
-    heading: "Dane Prądnicy",
-    image: "/img/photos/pradnica.webp",
-    imageAlt: "dane prądnicy",
-    imageRight: false,
-    items: [
-      "Model prądnicy: BRUSHLESS Stamford UC274G",
-      "Regulacja napięcia: Automatyczna (AVR)",
-      "Klasa izolacji: H",
-      "Stopień ochrony: IP23",
-    ],
-  },
-  {
-    heading: "System Sterowania",
-    image: "/img/photos/1.png",
-    imageAlt: "system sterowania",
-    imageRight: true,
-    items: [
-      "Sterownik mikroprocesorowy: Plus Power RF6120U",
-      "Funkcje: AUTO / MANUAL / TEST / STOP",
-      "Kontrola napięcia 3-fazowego: Tak",
-      "Współpraca z SZR: RTSE i ATSE",
-    ],
-  },
-];
-
-const tableRows = [
-  ["Moc maksymalna (kVA)", "150"],
-  ["Moc maksymalna (kW)", "120"],
-  ["Moc znamionowa (kVA)", "135"],
-  ["Moc znamionowa (kW)", "108"],
-  ["Napięcie (V)", "230/400V"],
-  ["Współczynnik mocy", "0,8"],
-  ["Prąd znamionowy (A)", "195 A"],
-  ["Częstotliwość (Hz)", "50 Hz"],
-  ["Ilość faz", "3"],
-  ["Długość (mm)", "2905 mm"],
-  ["Szerokość (mm)", "1107 mm"],
-  ["Wysokość (mm)", "1455 mm"],
-  ["Waga bez paliwa (kg)", "1690 kg"],
-  ["Model silnika", "NM6105BZLD"],
-  ["Rodzaj silnika", "Wysokoprężny"],
-  ["Typ silnika", "Wolnossący"],
-  ["Rodzaj paliwa", "Olej napędowy (ON)"],
-  ["Pojemność skokowa (l)", "6,75 l"],
-  ["Ilość cylindrów", "6"],
-  ["Moc silnika (kW)", "132 kW"],
-  ["Prędkość obrotowa (obr/min)", "1500 obr/min"],
-  ["Ilość czynnika chłodzącego", "25 l"],
-  ["Ilość oleju w układzie smarowania", "16 l"],
-  ["Rodzaj rozruchu", "Elektryczny"],
-  ["Zużycie paliwa (50% obciążenia) (l/h)", "16"],
-  ["Zużycie paliwa (75% obciążenia) (l/h)", "23"],
-  ["Zużycie paliwa (100% obciążenia) (l/h)", "30"],
-  ["Gwarantowany poziom hałasu (dB)", "108 dBa"],
-  ["Model prądnicy", "BRUSHLESS (brand Stamford), UC274F"],
-  ["Rodzaj prądnicy", "Synchroniczna 3F"],
-  ["Regulacja prądnicy", "Automatyczna regulacja AVR"],
-  ["Klasa izolacji", "Klasa H"],
-  ["Stopień ochrony prądnicy", "IP 23"],
 ];
 
 const tabs = ["Opis agregatu", "Parametry", "Dostawa"];
 
-export default function ProductDescription() {
+interface ProductDescriptionProps {
+  model: AggregateModel;
+}
+
+export default function ProductDescription({ model }: ProductDescriptionProps) {
   const [activeTab, setActiveTab] = useState(0);
+  const tableRows = [
+    ["Moc agregatu", `${model.power} kW`],
+    ["Moc pozorna", `${model.kva} kVA`],
+    ["Rodzaj zasilania", "Agregat prądotwórczy dużej mocy"],
+    ["Napięcie robocze", "230/400 V"],
+    ["Częstotliwość", "50 Hz"],
+    ["Ilość faz", "3"],
+    ["Zastosowanie", "Przemysł, budownictwo, zasilanie awaryjne"],
+    ["Szczegółowe parametry", "W przygotowaniu dla tego modelu"],
+  ];
 
   return (
     <div className="mt-16">
@@ -217,6 +156,7 @@ export default function ProductDescription() {
             "Nasz zespół logistyczny, składający się z doświadczonych specjalistów, zapewnia profesjonalną obsługę na każdym etapie realizacji zamówienia. Od momentu złożenia zamówienia, aż do dostarczenia agregatu na wskazane miejsce, możesz liczyć na pełne wsparcie oraz bieżące informacje o statusie przesyłki.",
             "Jesteśmy dumni z naszej niezawodności i terminowości dostaw, co jest kluczowe w branży, w której działamy. Dzięki rozbudowanej sieci transportowej i współpracy z najlepszymi przewoźnikami, jesteśmy w stanie realizować dostawy nawet w najbardziej wymagających lokalizacjach. Każdy agregat jest starannie zabezpieczony na czas transportu, abyś mógł mieć pewność, że otrzymasz produkt gotowy do natychmiastowego użytkowania.",
             "Niezależnie od tego, gdzie znajduje się Twoja firma, dostarczymy agregat w sposób szybki, bezpieczny i całkowicie darmowy. Twoje zadowolenie jest naszym priorytetem, dlatego dokładamy wszelkich starań, aby każda dostawa była realizowana z najwyższą starannością i zgodnie z ustalonym harmonogramem.",
+            `Jeżeli interesuje Cię model ${model.power} kW (${model.kva} kVA), przygotujemy także indywidualną ofertę wraz z pełną specyfikacją techniczną.`,
           ].map((para, i) => (
             <p key={i} className="text-gray-600 leading-relaxed">
               {para}
