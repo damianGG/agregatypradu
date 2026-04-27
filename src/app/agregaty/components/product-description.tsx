@@ -18,8 +18,11 @@ interface ProductDescriptionProps {
 
 export default function ProductDescription({ model }: ProductDescriptionProps) {
   const [activeTab, setActiveTab] = useState(0);
+  const normalizeSpecificationLabel = (label: string) => label.replace(/\s+/g, " ").replace(/\s*\(/g, "(").trim();
   const getSpecification = (label: string) =>
-    model.specifications.find(([specificationLabel]) => specificationLabel === label)?.[1] ?? "—";
+    model.specifications.find(
+      ([specificationLabel]) => normalizeSpecificationLabel(specificationLabel) === normalizeSpecificationLabel(label)
+    )?.[1] ?? "—";
 
   const descriptionSections = [
     {
@@ -36,7 +39,7 @@ export default function ProductDescription({ model }: ProductDescriptionProps) {
       imageRight: true,
       items: [
         `Moc maksymalna E.S.P. wynosi ${getSpecification("Moc maksymalna E.S.P. (kW)")} / ${getSpecification("Moc maksymalna E.S.P. (kVA)")}.`,
-        `Moc znamionowa P.R.P. to ${getSpecification("Moc znamionowa P.R.P. (kW)")} / ${getSpecification("Moc znamionowa P.R.P.(kVA)")}.`,
+        `Moc znamionowa P.R.P. to ${getSpecification("Moc znamionowa P.R.P. (kW)")} / ${getSpecification("Moc znamionowa P.R.P. (kVA)")}.`,
         `Agregat pracuje przy napięciu ${getSpecification("Napięcie (V)")}, częstotliwości ${getSpecification("Częstotliwość (Hz)")} i współczynniku mocy ${getSpecification("Współczynnik mocy (cos ф)")}.`,
         `Prąd znamionowy wynosi ${getSpecification("Prąd znamionowy (A)")}, a układ pracuje jako ${getSpecification("Ilość faz")}-fazowy.`,
       ],
@@ -59,7 +62,8 @@ export default function ProductDescription({ model }: ProductDescriptionProps) {
       imageAlt: `prądnica agregatu ${model.power} kW`,
       imageRight: true,
       items: [
-        `Zbiornik paliwa o pojemności ${getSpecification("Pojemność zbiornika (l)")} pozwala zasilać agregat przy spalaniu ${getSpecification("Zużycie paliwa (50% obciążenia) (l/h)")} przy 50% obciążenia, ${getSpecification("Zużycie paliwa (75% obciążenia) (l/h)")} przy 75% obciążenia i ${getSpecification("Zużycie paliwa (100% obciążenia) (l/h)")} przy 100% obciążenia.`,
+        `Zbiornik paliwa ma pojemność ${getSpecification("Pojemność zbiornika (l)")}.`,
+        `Zużycie paliwa wynosi ${getSpecification("Zużycie paliwa (50% obciążenia) (l/h)")} przy 50% obciążenia, ${getSpecification("Zużycie paliwa (75% obciążenia) (l/h)")} przy 75% obciążenia i ${getSpecification("Zużycie paliwa (100% obciążenia) (l/h)")} przy 100% obciążenia.`,
         `Zabudowa ma wymiary ${getSpecification("Długość (mm)")} x ${getSpecification("Szerokość (mm)")} x ${getSpecification("Wysokość (mm)")}, a masa bez paliwa wynosi ${getSpecification("Waga bez paliwa (kg)")}.`,
         `Prądnica ${getSpecification("Model prądnicy")} pracuje w technologii ${getSpecification("Technologia")} z regulatorem ${getSpecification("Regulator napięcia")} i izolacją klasy ${getSpecification("Klasa izolacji")}.`,
         `Poziom hałasu to ${getSpecification("Gwarantowany poziom hałasu (dBA)")}, ciśnienie akustyczne z 7 metrów ${getSpecification("Ciśnienie akustyczne z 7 metrów (dBA)")}, a stopień ochrony prądnicy wynosi ${getSpecification("Stopień ochrony prądnicy")}.`,
