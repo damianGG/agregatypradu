@@ -21,7 +21,7 @@ export default function NavbarOne() {
   const navLinks = [
     { href: "/o-nas", label: "O nas" },
     { href: "/oferta", label: "Oferta" },
-    { href: "/agregaty/agregat-pluspower-120-kw", label: "Agregaty" },
+    { href: "/agregaty", label: "Agregaty" },
     { href: "/galeria", label: "Galeria" },
     { href: "/kontakt", label: "Kontakt" },
   ];

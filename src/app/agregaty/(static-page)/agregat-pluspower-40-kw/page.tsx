@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { findAggregateModelByPower } from "@/data/aggregate-models";
 import AggregateProductPage, { buildAggregateMetadata } from "../../components/aggregate-product-page";
 
-const model = findAggregateModelByPower(150);
+const model = findAggregateModelByPower(40);
 
 export const metadata: Metadata = model
   ? buildAggregateMetadata(model)

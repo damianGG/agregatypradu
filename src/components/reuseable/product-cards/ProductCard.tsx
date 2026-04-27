@@ -11,14 +11,16 @@ interface ProductCardProps {
   className?: string;
   regularPrice: number;
   power?: string;
+  slug?: string;
 }
 
 export default function ProductCard(props: ProductCardProps) {
-  const { image, title, new: newProduct, sale, category, salePrice, regularPrice, rating, className = "", power } = props;
+  const { image, title, new: newProduct, sale, category, salePrice, regularPrice, rating, className = "", power, slug } = props;
+  const href = slug ? `/agregaty/${slug}` : power ? `/agregaty/agregat-pluspower-${power}-kw` : "/agregaty";
 
   return (
     <div className={`group ${className}`}>
-      <Link href={`/agregaty/agregat-pluspower-${power}-kw`}>
+      <Link href={href}>
         <div className="relative overflow-hidden rounded-2xl mb-4 aspect-[4/3] bg-gray-100">
           <img
             src={`/img/photos/${image}.webp`}
@@ -49,10 +51,12 @@ export default function ProductCard(props: ProductCardProps) {
             {salePrice && salePrice > 0 ? (
               <>
                 <del className="text-gray-400 mr-2">{salePrice} zł</del>
-                <span className="text-blue-600">{regularPrice} zł</span>
+                <span className="text-blue-600">{regularPrice} zł netto</span>
               </>
+            ) : regularPrice > 0 ? (
+              <span>{regularPrice} zł netto</span>
             ) : (
-              <span>{regularPrice} zł</span>
+              <span>Zapytaj o cenę</span>
             )}
           </p>
         </div>
