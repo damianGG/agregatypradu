@@ -28,7 +28,7 @@ export const aggregateBaseEquipment = [
     "Silnik turbodoładowany",
     "Wyłącznik główny (zabezpieczenie prądnicy) 3 biegunowy",
     "Szafa sterowania i zabezpieczeń",
-    "Przycisk bezpieczeństw STOP",
+    "Przycisk bezpieczeństwa STOP",
     "Zaciski odbioru mocy"
 ];
 

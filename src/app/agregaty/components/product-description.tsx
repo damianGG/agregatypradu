@@ -59,7 +59,7 @@ export default function ProductDescription({ model }: ProductDescriptionProps) {
       imageAlt: `prądnica agregatu ${model.power} kW`,
       imageRight: true,
       items: [
-        `Zbiornik paliwa o pojemności ${getSpecification("Pojemność zbiornika (l)")} pozwala zasilać agregat przy spalaniu ${getSpecification("Zużycie paliwa (50% obciążenia) (l/h)")}, ${getSpecification("Zużycie paliwa (75% obciążenia) (l/h)")} i ${getSpecification("Zużycie paliwa (100% obciążenia) (l/h)")}.`,
+        `Zbiornik paliwa o pojemności ${getSpecification("Pojemność zbiornika (l)")} pozwala zasilać agregat przy spalaniu ${getSpecification("Zużycie paliwa (50% obciążenia) (l/h)")} przy 50% obciążenia, ${getSpecification("Zużycie paliwa (75% obciążenia) (l/h)")} przy 75% obciążenia i ${getSpecification("Zużycie paliwa (100% obciążenia) (l/h)")} przy 100% obciążenia.`,
         `Zabudowa ma wymiary ${getSpecification("Długość (mm)")} x ${getSpecification("Szerokość (mm)")} x ${getSpecification("Wysokość (mm)")}, a masa bez paliwa wynosi ${getSpecification("Waga bez paliwa (kg)")}.`,
         `Prądnica ${getSpecification("Model prądnicy")} pracuje w technologii ${getSpecification("Technologia")} z regulatorem ${getSpecification("Regulator napięcia")} i izolacją klasy ${getSpecification("Klasa izolacji")}.`,
         `Poziom hałasu to ${getSpecification("Gwarantowany poziom hałasu (dBA)")}, ciśnienie akustyczne z 7 metrów ${getSpecification("Ciśnienie akustyczne z 7 metrów (dBA)")}, a stopień ochrony prądnicy wynosi ${getSpecification("Stopień ochrony prądnicy")}.`,
