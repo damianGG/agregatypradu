@@ -51,10 +51,10 @@ export default function ProductCard(props: ProductCardProps) {
             {salePrice && salePrice > 0 ? (
               <>
                 <del className="text-gray-400 mr-2">{salePrice} zł</del>
-                <span className="text-blue-600">{regularPrice} zł</span>
+                <span className="text-blue-600">{regularPrice} zł netto</span>
               </>
             ) : regularPrice > 0 ? (
-              <span>{regularPrice} zł</span>
+              <span>{regularPrice} zł netto</span>
             ) : (
               <span>Zapytaj o cenę</span>
             )}

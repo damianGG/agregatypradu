@@ -14,7 +14,7 @@ interface AggregateProductPageProps {
 export function buildAggregateMetadata(model: AggregateModel): Metadata {
   return {
     title: `${model.title} (${model.kva} kVA) | agregatypradu.pl`,
-    description: `Poznaj ${model.title} o mocy ${model.kva} kVA. Osobna strona produktowa, opis zastosowań i szybki kontakt w sprawie wyceny.`,
+    description: `${model.description} Parametry techniczne, wyposażenie i szybki kontakt w sprawie modelu ${model.power} kW (${model.kva} kVA).`,
   };
 }
 
@@ -32,7 +32,7 @@ export default function AggregateProductPage({ model }: AggregateProductPageProp
           <h1 className="text-4xl lg:text-5xl font-bold text-white">
             {model.title} ({model.kva} kVA)
           </h1>
-          <p className="mt-3 text-blue-100 text-lg">Osobna strona produktowa dla modelu o mocy {model.power} kW</p>
+          <p className="mt-3 text-blue-100 text-lg">{model.description}</p>
         </div>
       </section>
 

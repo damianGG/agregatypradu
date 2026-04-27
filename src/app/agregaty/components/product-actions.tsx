@@ -18,7 +18,7 @@ export default function ProductActions({ model }: ProductActionsProps) {
           {model.title} ({model.kva} kVA)
         </h1>
         <p className="text-3xl font-bold text-blue-600">
-          {model.price ? `${priceFormatter.format(model.price)} zł` : "Zapytaj o wycenę"}
+          {model.price ? `${priceFormatter.format(model.price)} zł netto` : "Zapytaj o wycenę"}
         </p>
       </div>
 
@@ -50,9 +50,9 @@ export default function ProductActions({ model }: ProductActionsProps) {
       <div className="rounded-2xl bg-blue-50 border border-blue-100 p-5">
         <p className="text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide">Najważniejsze informacje</p>
         <ul className="space-y-2 text-gray-600">
-          <li>• Osobna podstrona przygotowana pod konkretną moc agregatu.</li>
-          <li>• Szczegółowe parametry techniczne dla modelu {model.power} kW dodamy w kolejnym etapie.</li>
-          <li>• Dobieramy agregat do zastosowań przemysłowych, awaryjnych i budowlanych.</li>
+          {model.highlights.map((highlight) => (
+            <li key={highlight}>• {highlight}</li>
+          ))}
         </ul>
       </div>
 

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { AggregateModel } from "@/data/aggregate-models";
+import { AggregateModel, aggregateBaseEquipment, aggregateControllerFeatures } from "@/data/aggregate-models";
 
 const CheckIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 flex-shrink-0">
@@ -10,46 +10,7 @@ const CheckIcon = () => (
   </svg>
 );
 
-const specs = [
-  {
-    heading: "Zastosowanie i wydajność",
-    image: "/img/photos/1.png",
-    imageAlt: "zastosowanie agregatu",
-    imageRight: false,
-    items: [
-      "Agregaty PlusPower sprawdzają się jako zasilanie awaryjne oraz podstawowe.",
-      "Dobieramy rozwiązanie do obiektów przemysłowych, magazynowych i budowlanych.",
-      "Stabilna praca pozwala zabezpieczyć kluczowe procesy w firmie.",
-      "Modele są przystosowane do wielogodzinnej eksploatacji w wymagających warunkach.",
-    ],
-  },
-  {
-    heading: "Silnik i podzespoły",
-    image: "/img/photos/pluspower150kw_mainphoto-removebg-preview.png",
-    imageAlt: "podzespoły agregatu",
-    imageRight: true,
-    items: [
-      "Stawiamy na sprawdzone komponenty zapewniające wysoką niezawodność.",
-      "Agregaty są projektowane z myślą o łatwym serwisie i wygodnej obsłudze.",
-      "Każdy model może zostać dopasowany do potrzeb konkretnej inwestycji.",
-      "Szczegółowa konfiguracja techniczna zostanie rozpisana dla każdej mocy osobno.",
-    ],
-  },
-  {
-    heading: "Obsługa i wsparcie",
-    image: "/img/photos/IMG_6274.jpg",
-    imageAlt: "wsparcie techniczne agregatu",
-    imageRight: false,
-    items: [
-      "Pomagamy w doborze mocy, konfiguracji i przygotowaniu oferty.",
-      "Zapewniamy transport, uruchomienie i opiekę serwisową.",
-      "Możesz szybko zamówić wycenę lub skonsultować wymagania techniczne.",
-      "Dla każdego modelu przygotujemy osobną kartę parametrów w kolejnym etapie prac.",
-    ],
-  },
-];
-
-const tabs = ["Opis agregatu", "Parametry", "Dostawa"];
+const tabs = ["Opis agregatu", "Parametry", "Wyposażenie"];
 
 interface ProductDescriptionProps {
   model: AggregateModel;
@@ -57,15 +18,53 @@ interface ProductDescriptionProps {
 
 export default function ProductDescription({ model }: ProductDescriptionProps) {
   const [activeTab, setActiveTab] = useState(0);
-  const tableRows = [
-    ["Moc agregatu", `${model.power} kW`],
-    ["Moc pozorna", `${model.kva} kVA`],
-    ["Rodzaj zasilania", "Agregat prądotwórczy dużej mocy"],
-    ["Napięcie robocze", "230/400 V"],
-    ["Częstotliwość", "50 Hz"],
-    ["Ilość faz", "3"],
-    ["Zastosowanie", "Przemysł, budownictwo, zasilanie awaryjne"],
-    ["Szczegółowe parametry", "W przygotowaniu dla tego modelu"],
+  const getSpecification = (label: string) =>
+    model.specifications.find(([specificationLabel]) => specificationLabel === label)?.[1] ?? "—";
+
+  const descriptionSections = [
+    {
+      heading: "Zastosowanie modelu",
+      image: "/img/photos/1.png",
+      imageAlt: `zastosowanie agregatu ${model.power} kW`,
+      imageRight: false,
+      items: model.applications,
+    },
+    {
+      heading: "Parametry elektryczne",
+      image: "/img/photos/pluspower150kw_mainphoto-removebg-preview.png",
+      imageAlt: `parametry elektryczne agregatu ${model.power} kW`,
+      imageRight: true,
+      items: [
+        `Moc maksymalna E.S.P. wynosi ${getSpecification("Moc maksymalna E.S.P. (kW)")} / ${getSpecification("Moc maksymalna E.S.P. (kVA)")}.`,
+        `Moc znamionowa P.R.P. to ${getSpecification("Moc znamionowa P.R.P. (kW)")} / ${getSpecification("Moc znamionowa P.R.P.(kVA)")}.`,
+        `Agregat pracuje przy napięciu ${getSpecification("Napięcie (V)")}, częstotliwości ${getSpecification("Częstotliwość (Hz)")} i współczynniku mocy ${getSpecification("Współczynnik mocy (cos ф)")}.`,
+        `Prąd znamionowy wynosi ${getSpecification("Prąd znamionowy (A)")}, a układ pracuje jako ${getSpecification("Ilość faz")}-fazowy.`,
+      ],
+    },
+    {
+      heading: "Silnik i układ paliwowy",
+      image: "/img/photos/IMG_6274.jpg",
+      imageAlt: `silnik agregatu ${model.power} kW`,
+      imageRight: false,
+      items: [
+        `Model silnika: ${getSpecification("Model silnika")} (${getSpecification("Typ silnika")}, ${getSpecification("Doładowanie silnika").toLowerCase()}).`,
+        `Jednostka napędowa osiąga ${getSpecification("Moc silnika (kW)")}, ma ${getSpecification("Ilość cylindrów")} cylindry i pojemność ${getSpecification("Pojemność skokowa (cm3)")}.`,
+        `Układ paliwowy oparty jest o ${getSpecification("System paliwowy")}, paliwo: ${getSpecification("Rodzaj paliwa")}.`,
+        `Rozruch ${getSpecification("Rodzaj rozruchu").toLowerCase()}, napięcie instalacji ${getSpecification("Napięcie instalacji (V)")}, prędkość obrotowa ${getSpecification("Prędkość obrotowa (obr./min.)")}.`,
+      ],
+    },
+    {
+      heading: "Eksploatacja i prądnica",
+      image: "/img/photos/pradnica.webp",
+      imageAlt: `prądnica agregatu ${model.power} kW`,
+      imageRight: true,
+      items: [
+        `Zbiornik paliwa o pojemności ${getSpecification("Pojemność zbiornika (l)")} pozwala zasilać agregat przy spalaniu ${getSpecification("Zużycie paliwa (50% obciążenia) (l/h)")}, ${getSpecification("Zużycie paliwa (75% obciążenia) (l/h)")} i ${getSpecification("Zużycie paliwa (100% obciążenia) (l/h)")}.`,
+        `Zabudowa ma wymiary ${getSpecification("Długość (mm)")} x ${getSpecification("Szerokość (mm)")} x ${getSpecification("Wysokość (mm)")}, a masa bez paliwa wynosi ${getSpecification("Waga bez paliwa (kg)")}.`,
+        `Prądnica ${getSpecification("Model prądnicy")} pracuje w technologii ${getSpecification("Technologia")} z regulatorem ${getSpecification("Regulator napięcia")} i izolacją klasy ${getSpecification("Klasa izolacji")}.`,
+        `Poziom hałasu to ${getSpecification("Gwarantowany poziom hałasu (dBA)")}, ciśnienie akustyczne z 7 metrów ${getSpecification("Ciśnienie akustyczne z 7 metrów (dBA)")}, a stopień ochrony prądnicy wynosi ${getSpecification("Stopień ochrony prądnicy")}.`,
+      ],
+    },
   ];
 
   return (
@@ -92,7 +91,7 @@ export default function ProductDescription({ model }: ProductDescriptionProps) {
       {/* Tab 1: Opis agregatu */}
       {activeTab === 0 && (
         <div className="space-y-20">
-          {specs.map((spec, idx) => (
+          {descriptionSections.map((spec, idx) => (
             <div
               key={idx}
               className={`flex flex-col ${spec.imageRight ? "lg:flex-row" : "lg:flex-row-reverse"} gap-10 lg:gap-16 items-center`}
@@ -137,7 +136,7 @@ export default function ProductDescription({ model }: ProductDescriptionProps) {
               </tr>
             </thead>
             <tbody>
-              {tableRows.map(([param, val], i) => (
+              {model.specifications.map(([param, val], i) => (
                 <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-blue-50"}>
                   <td className="px-5 py-3 text-gray-700 font-medium">{param}</td>
                   <td className="px-5 py-3 text-gray-600">{val}</td>
@@ -148,20 +147,36 @@ export default function ProductDescription({ model }: ProductDescriptionProps) {
         </div>
       )}
 
-      {/* Tab 3: Dostawa */}
+      {/* Tab 3: Wyposażenie */}
       {activeTab === 2 && (
-        <div className="max-w-3xl space-y-5">
-          {[
-            "Dokładamy wszelkich starań, aby proces dostawy naszych agregatów prądotwórczych był tak samo niezawodny, jak nasze produkty. Oferujemy darmową dostawę na terenie całego kraju, jak i do krajów europejskich, dbając o to, aby zamówione urządzenia dotarły do Ciebie w nienaruszonym stanie i w ustalonym terminie.",
-            "Nasz zespół logistyczny, składający się z doświadczonych specjalistów, zapewnia profesjonalną obsługę na każdym etapie realizacji zamówienia. Od momentu złożenia zamówienia, aż do dostarczenia agregatu na wskazane miejsce, możesz liczyć na pełne wsparcie oraz bieżące informacje o statusie przesyłki.",
-            "Jesteśmy dumni z naszej niezawodności i terminowości dostaw, co jest kluczowe w branży, w której działamy. Dzięki rozbudowanej sieci transportowej i współpracy z najlepszymi przewoźnikami, jesteśmy w stanie realizować dostawy nawet w najbardziej wymagających lokalizacjach. Każdy agregat jest starannie zabezpieczony na czas transportu, abyś mógł mieć pewność, że otrzymasz produkt gotowy do natychmiastowego użytkowania.",
-            "Niezależnie od tego, gdzie znajduje się Twoja firma, dostarczymy agregat w sposób szybki, bezpieczny i całkowicie darmowy. Twoje zadowolenie jest naszym priorytetem, dlatego dokładamy wszelkich starań, aby każda dostawa była realizowana z najwyższą starannością i zgodnie z ustalonym harmonogramem.",
-            `Jeżeli interesuje Cię model ${model.power} kW (${model.kva} kVA), przygotujemy także indywidualną ofertę wraz z pełną specyfikacją techniczną.`,
-          ].map((para, i) => (
-            <p key={i} className="text-gray-600 leading-relaxed">
-              {para}
-            </p>
-          ))}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-bold text-gray-800 mb-4">Wyposażenie podstawowe agregatu</h3>
+            <ul className="space-y-3">
+              {aggregateBaseEquipment.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-gray-600">
+                  <span className="flex-shrink-0 w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mt-0.5">
+                    <CheckIcon />
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-2xl border border-gray-200 bg-blue-50 p-6 shadow-sm">
+            <h3 className="text-xl font-bold text-gray-800 mb-4">Sterownik agregatu PLUS POWER 6120</h3>
+            <ul className="space-y-3">
+              {aggregateControllerFeatures.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-gray-600">
+                  <span className="flex-shrink-0 w-6 h-6 bg-white text-blue-600 rounded-full flex items-center justify-center mt-0.5">
+                    <CheckIcon />
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </div>
