@@ -33,9 +33,6 @@ export default function Footer1() {
             <address className="text-blue-200 text-sm not-italic leading-relaxed">
               Sielec 1A, 39-120 Sędziszów Młp. Poland
             </address>
-            <Link href="mailto:biuro@agregatypradu.pl" className="text-blue-300 hover:text-white text-sm block mt-2 transition-colors">
-              biuro@agregatypradu.pl
-            </Link>
             <p className="text-blue-200 text-sm mt-1">+48 606 392 657</p>
           </div>
 

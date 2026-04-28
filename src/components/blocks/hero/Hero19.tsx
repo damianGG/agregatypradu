@@ -3,17 +3,17 @@ import Link from "next/link";
 export default function Hero19() {
   return (
     <section
-      className="relative min-h-[600px] lg:min-h-[700px] flex items-center justify-center bg-cover bg-center"
+      className="relative min-h-[1000px] flex items-center justify-center bg-contain bg-center bg-no-repeat"
       style={{ backgroundImage: "url(/img/photos/zdjecieWtle.png)" }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-blue-900/60" />
-      
+
       <div className="relative z-10 container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Moc, na którą możesz{" "}
-            <span className="text-blue-300 underline decoration-blue-400">liczyć</span>
+            <span className="text-[#e5740e] underline decoration-[#e5740e]">liczyć</span>
           </h1>
           <p className="text-xl lg:text-2xl text-blue-100 mb-10 leading-relaxed">
             Jesteśmy dystrybutorem agregatów prądotwórczych dużej mocy marki PlusPower
@@ -21,7 +21,7 @@ export default function Hero19() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/agregaty"
-              className="bg-blue-500 hover:bg-blue-400 text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-200 shadow-lg"
+              className="bg-[#e5740e] hover:bg-[#cf650c] text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-200 shadow-lg"
             >
               Poznaj nasze agregaty
             </Link>
@@ -35,12 +35,6 @@ export default function Hero19() {
         </div>
       </div>
 
-      {/* Wave divider */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" className="text-white fill-current">
-          <path d="M0,0V60H1440V0A5771,5771,0,0,1,0,0Z" />
-        </svg>
-      </div>
     </section>
   );
 }

@@ -2,6 +2,12 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import {
+  aggregateCardImageByPower,
+  aggregateDescriptionImages,
+  aggregateGalleryImages,
+  aggregateHighlightImages,
+} from "@/data/aggregate-gallery";
 import { AggregateModel, aggregateBaseEquipment, aggregateControllerFeatures } from "@/data/aggregate-models";
 
 const CheckIcon = () => (
@@ -10,7 +16,7 @@ const CheckIcon = () => (
   </svg>
 );
 
-const tabs = ["Opis agregatu", "Parametry", "Wyposażenie"];
+const tabs = ["Opis agregatu", "Parametry", "Galeria", "Wyposażenie"];
 
 interface ProductDescriptionProps {
   model: AggregateModel;
@@ -18,6 +24,7 @@ interface ProductDescriptionProps {
 
 export default function ProductDescription({ model }: ProductDescriptionProps) {
   const [activeTab, setActiveTab] = useState(0);
+  const overviewImage = aggregateCardImageByPower[model.power] ?? aggregateDescriptionImages.overview;
   const normalizeSpecificationLabel = (label: string) => label.replace(/\s+/g, " ").replace(/\s*\(/g, "(").trim();
   const getSpecification = (label: string) =>
     model.specifications.find(
@@ -27,15 +34,15 @@ export default function ProductDescription({ model }: ProductDescriptionProps) {
   const descriptionSections = [
     {
       heading: "Zastosowanie modelu",
-      image: "/img/photos/1.png",
-      imageAlt: `zastosowanie agregatu ${model.power} kW`,
+      image: aggregateDescriptionImages.applications.src,
+      imageAlt: aggregateDescriptionImages.applications.alt,
       imageRight: false,
       items: model.applications,
     },
     {
       heading: "Parametry elektryczne",
-      image: "/img/photos/pluspower150kw_mainphoto-removebg-preview.png",
-      imageAlt: `parametry elektryczne agregatu ${model.power} kW`,
+      image: aggregateDescriptionImages.electrical.src,
+      imageAlt: aggregateDescriptionImages.electrical.alt,
       imageRight: true,
       items: [
         `Moc maksymalna E.S.P. wynosi ${getSpecification("Moc maksymalna E.S.P. (kW)")} / ${getSpecification("Moc maksymalna E.S.P. (kVA)")}.`,
@@ -46,8 +53,8 @@ export default function ProductDescription({ model }: ProductDescriptionProps) {
     },
     {
       heading: "Silnik i układ paliwowy",
-      image: "/img/photos/IMG_6274.jpg",
-      imageAlt: `silnik agregatu ${model.power} kW`,
+      image: aggregateDescriptionImages.engine.src,
+      imageAlt: aggregateDescriptionImages.engine.alt,
       imageRight: false,
       items: [
         `Model silnika: ${getSpecification("Model silnika")} (${getSpecification("Typ silnika")}, ${getSpecification("Doładowanie silnika").toLowerCase()}).`,
@@ -58,8 +65,8 @@ export default function ProductDescription({ model }: ProductDescriptionProps) {
     },
     {
       heading: "Eksploatacja i prądnica",
-      image: "/img/photos/pradnica.webp",
-      imageAlt: `prądnica agregatu ${model.power} kW`,
+      image: aggregateDescriptionImages.alternator.src,
+      imageAlt: aggregateDescriptionImages.alternator.alt,
       imageRight: true,
       items: [
         `Zbiornik paliwa ma pojemność ${getSpecification("Pojemność zbiornika (l)")}.`,
@@ -69,7 +76,62 @@ export default function ProductDescription({ model }: ProductDescriptionProps) {
         `Poziom hałasu to ${getSpecification("Gwarantowany poziom hałasu (dBA)")}, ciśnienie akustyczne z 7 metrów ${getSpecification("Ciśnienie akustyczne z 7 metrów (dBA)")}, a stopień ochrony prądnicy wynosi ${getSpecification("Stopień ochrony prądnicy")}.`,
       ],
     },
+    {
+      heading: "Parametry pracy i wydajność",
+      image: aggregateGalleryImages[6]?.src ?? aggregateDescriptionImages.electrical.src,
+      imageAlt: aggregateGalleryImages[6]?.alt ?? aggregateDescriptionImages.electrical.alt,
+      imageRight: false,
+      items: [
+        `Model pracuje z częstotliwością ${getSpecification("Częstotliwość (Hz)")} i napięciem ${getSpecification("Napięcie (V)")}, dzięki czemu jest gotowy do standardowych odbiorów przemysłowych oraz obiektowych.`,
+        `Współczynnik mocy ${getSpecification("Współczynnik mocy (cos ф)")} oraz prąd znamionowy ${getSpecification("Prąd znamionowy (A)")} zapewniają stabilną pracę pod obciążeniem.`,
+        `Sprawność układu utrzymuje się na poziomie ${getSpecification("Sprawność dla obciążenia 70% (%)")} przy 70%, ${getSpecification("Sprawność dla obciążenia 80% (%)")} przy 80% i ${getSpecification("Sprawność dla obciążenia 100% (%)")} przy pełnym obciążeniu.`,
+      ],
+    },
+    {
+      heading: "Autonomia i zabudowa",
+      image: aggregateGalleryImages[1]?.src ?? aggregateDescriptionImages.applications.src,
+      imageAlt: aggregateGalleryImages[1]?.alt ?? aggregateDescriptionImages.applications.alt,
+      imageRight: true,
+      items: [
+        `Zbiornik paliwa o pojemności ${getSpecification("Pojemność zbiornika (l)")} pozwala zaplanować dłuższą pracę bez częstego tankowania.`,
+        `Zużycie paliwa przy 50%, 75% i 100% obciążenia wynosi odpowiednio ${getSpecification("Zużycie paliwa (50% obciążenia) (l/h)")}, ${getSpecification("Zużycie paliwa (75% obciążenia) (l/h)")} oraz ${getSpecification("Zużycie paliwa (100% obciążenia) (l/h)")}.`,
+        `Gabaryty ${getSpecification("Długość (mm)")} x ${getSpecification("Szerokość (mm)")} x ${getSpecification("Wysokość (mm)")} oraz masa ${getSpecification("Waga bez paliwa (kg)")} ułatwiają zaplanowanie miejsca montażu i transportu.`,
+      ],
+    },
+    {
+      heading: "Rozruch i bezpieczeństwo pracy",
+      image: aggregateGalleryImages[8]?.src ?? aggregateDescriptionImages.engine.src,
+      imageAlt: aggregateGalleryImages[8]?.alt ?? aggregateDescriptionImages.engine.alt,
+      imageRight: false,
+      items: [
+        `Rozruch ${getSpecification("Rodzaj rozruchu").toLowerCase()} i instalacja ${getSpecification("Napięcie instalacji (V)")} wspierają pewne uruchomienie jednostki nawet przy wymagających warunkach.`,
+        `Układ chłodzenia ${getSpecification("Czynnik chłodzący").toLowerCase()} z pojemnością ${getSpecification("Ilość czynnika chłodzącego (l)")} oraz układ smarowania ${getSpecification("Rodzaj oleju")} poprawiają trwałość eksploatacyjną.`,
+        `Prądnica o stopniu ochrony ${getSpecification("Stopień ochrony prądnicy")} i regulatorze ${getSpecification("Regulator napięcia")} pomaga utrzymać bezpieczne parametry pracy odbiorów.`,
+      ],
+    },
   ];
+
+  const descriptionHighlights = model.highlights.map((item, index) => ({
+    text: item,
+    image: aggregateHighlightImages[index % aggregateHighlightImages.length],
+  }));
+
+  const extraFeatureHighlights = [
+    {
+      text: `Pojemność zbiornika ${getSpecification("Pojemność zbiornika (l)")} i spalanie ${getSpecification("Zużycie paliwa (100% obciążenia) (l/h)")} przy pełnym obciążeniu dają wysoką autonomię pracy.`,
+      image: aggregateGalleryImages[7] ?? aggregateHighlightImages[0],
+    },
+    {
+      text: `Prądnica ${getSpecification("Model prądnicy")} z regulatorem ${getSpecification("Regulator napięcia")} zapewnia stabilne parametry zasilania odbiorników.`,
+      image: aggregateGalleryImages[19] ?? aggregateHighlightImages[1],
+    },
+    {
+      text: `Silnik ${getSpecification("Model silnika")} o mocy ${getSpecification("Moc silnika (kW)")} i układzie ${getSpecification("Ilość cylindrów")}-cylindrowym wspiera niezawodną pracę w wymagających warunkach.`,
+      image: aggregateGalleryImages[14] ?? aggregateHighlightImages[2],
+    },
+  ];
+
+  const allDescriptionHighlights = [...descriptionHighlights, ...extraFeatureHighlights];
 
   return (
     <div className="mt-16">
@@ -80,11 +142,10 @@ export default function ProductDescription({ model }: ProductDescriptionProps) {
             <button
               key={i}
               onClick={() => setActiveTab(i)}
-              className={`px-4 sm:px-6 py-3 text-sm sm:text-base font-semibold border-b-2 transition-colors duration-150 -mb-px ${
-                activeTab === i
-                  ? "border-blue-600 text-blue-600"
-                  : "border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-300"
-              }`}
+              className={`px-4 sm:px-6 py-3 text-sm sm:text-base font-semibold border-b-2 transition-colors duration-150 -mb-px ${activeTab === i
+                ? "border-blue-600 text-blue-600"
+                : "border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-300"
+                }`}
             >
               {tab}
             </button>
@@ -95,19 +156,61 @@ export default function ProductDescription({ model }: ProductDescriptionProps) {
       {/* Tab 1: Opis agregatu */}
       {activeTab === 0 && (
         <div className="space-y-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center rounded-3xl border border-gray-200 bg-gradient-to-br from-white to-blue-50 p-6 sm:p-8 shadow-sm">
+            <div>
+              <span className="inline-flex items-center rounded-full bg-blue-100 px-4 py-1 text-sm font-semibold text-blue-700">
+                Model {model.power} kW / {model.kva} kVA
+              </span>
+              <h2 className="mt-4 text-2xl lg:text-3xl font-bold text-gray-800">Opis modelu {model.title}</h2>
+              <p className="mt-4 text-gray-600 leading-8">{model.description}</p>
+            </div>
+
+            <figure className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-sm">
+              <Image
+                src={overviewImage.src}
+                fill
+                alt={overviewImage.alt}
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={82}
+              />
+            </figure>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {allDescriptionHighlights.map((highlight, index) => (
+              <article key={index} className="overflow-hidden rounded-2xl shadow-sm">
+                <figure className="relative aspect-[4/3]">
+                  <Image
+                    src={highlight.image.src}
+                    fill
+                    alt={highlight.image.alt}
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    quality={76}
+                  />
+                </figure>
+                <div className="p-5">
+                  <p className="text-gray-700 font-medium leading-7">{highlight.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
           {descriptionSections.map((spec, idx) => (
             <div
               key={idx}
               className={`flex flex-col ${spec.imageRight ? "lg:flex-row" : "lg:flex-row-reverse"} gap-10 lg:gap-16 items-center`}
             >
               <div className="w-full lg:w-1/2">
-                <figure className="rounded-2xl overflow-hidden shadow-lg">
+                <figure className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
                   <Image
                     src={spec.image}
-                    width={600}
-                    height={420}
+                    fill
                     alt={spec.imageAlt}
-                    className="w-full h-64 sm:h-72 object-contain bg-gray-50"
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    quality={80}
                   />
                 </figure>
               </div>
@@ -151,8 +254,26 @@ export default function ProductDescription({ model }: ProductDescriptionProps) {
         </div>
       )}
 
-      {/* Tab 3: Wyposażenie */}
+      {/* Tab 3: Galeria */}
       {activeTab === 2 && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {aggregateGalleryImages.map((image, index) => (
+            <figure key={`${image.src}-${index}`} className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-sm">
+              <Image
+                src={image.src}
+                fill
+                alt={image.alt}
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                quality={78}
+              />
+            </figure>
+          ))}
+        </div>
+      )}
+
+      {/* Tab 4: Wyposażenie */}
+      {activeTab === 3 && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
             <h3 className="text-xl font-bold text-gray-800 mb-4">Wyposażenie podstawowe agregatu</h3>

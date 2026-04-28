@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 interface ProductCardProps {
@@ -17,16 +18,21 @@ interface ProductCardProps {
 export default function ProductCard(props: ProductCardProps) {
   const { image, title, new: newProduct, sale, category, salePrice, regularPrice, rating, className = "", power, slug } = props;
   const href = slug ? `/agregaty/${slug}` : power ? `/agregaty/agregat-pluspower-${power}-kw` : "/agregaty";
+  const imageSrc = image.includes("/") || image.includes(".")
+    ? (image.startsWith("/") ? image : `/img/photos/${image}`)
+    : `/img/photos/${image}.png`;
 
   return (
     <div className={`group ${className}`}>
       <Link href={href}>
-        <div className="relative overflow-hidden rounded-2xl mb-4 aspect-[4/3] bg-gray-100">
-          <img
-            src={`/img/photos/${image}.webp`}
-            srcSet={`/img/photos/${image}@2x.jpg 2x`}
+        <div className="relative overflow-hidden rounded-2xl mb-4 aspect-square">
+          <Image
+            fill
+            src={imageSrc}
             alt={title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+            quality={78}
           />
           {newProduct && (
             <span className="absolute top-3 left-3 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">

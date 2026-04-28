@@ -1,9 +1,10 @@
 import Hero19 from "@/components/blocks/hero/Hero19";
+import BestsellersSlider from "@/components/blocks/products/BestsellersSlider";
 import Services21 from "@/components/blocks/services/Services21";
 import Testimonial1 from "@/components/blocks/testimonial/Testimonial1";
-import { ProductCard } from "@/components/reuseable/product-cards";
-import products from "@/data/product-list";
+import Image from "next/image";
 import Link from "next/link";
+import { aggregateDescriptionImages } from "@/data/aggregate-gallery";
 
 export default function Home() {
   return (
@@ -15,10 +16,8 @@ export default function Home() {
       <section className="bg-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-800 mb-12">Nasze bestsellery:</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            {products.map((item) => (
-              <ProductCard {...item} key={item.id} />
-            ))}
+          <div className="mb-16">
+            <BestsellersSlider />
           </div>
         </div>
       </section>
@@ -33,8 +32,15 @@ export default function Home() {
           {/* Ricardo Engine */}
           <div className="flex flex-col lg:flex-row gap-12 items-center mb-20">
             <div className="w-full lg:w-1/2 lg:order-2">
-              <figure className="rounded-2xl overflow-hidden shadow-xl">
-                <img src="/img/photos/IMG_6274.jpg" alt="Silnik RICARDO" className="w-full h-auto" />
+              <figure className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+                <Image
+                  src={aggregateDescriptionImages.engine.src}
+                  alt={aggregateDescriptionImages.engine.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  quality={82}
+                />
               </figure>
             </div>
             <div className="w-full lg:w-1/2 lg:order-1">
@@ -62,7 +68,7 @@ export default function Home() {
               </ul>
               <Link
                 href="/silnik-ricardo"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-colors duration-200"
+                className="inline-block bg-[#e5740e] hover:bg-[#cf650c] text-white px-8 py-3 rounded-full font-semibold transition-colors duration-200"
               >
                 Poznaj silniki RICARDO
               </Link>
@@ -72,8 +78,15 @@ export default function Home() {
           {/* Stamford Generator */}
           <div className="flex flex-col lg:flex-row gap-12 items-center mb-20">
             <div className="w-full lg:w-1/2 lg:order-1">
-              <figure className="rounded-2xl overflow-hidden shadow-xl">
-                <img src="/img/photos/pradnica.webp" alt="Prądnica STAMFORD" className="w-full h-auto" />
+              <figure className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+                <Image
+                  src={aggregateDescriptionImages.alternator.src}
+                  alt={aggregateDescriptionImages.alternator.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  quality={82}
+                />
               </figure>
             </div>
             <div className="w-full lg:w-1/2 lg:order-2">
@@ -101,7 +114,7 @@ export default function Home() {
               </ul>
               <Link
                 href="/pradnica-stanford"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-colors duration-200"
+                className="inline-block bg-[#e5740e] hover:bg-[#cf650c] text-white px-8 py-3 rounded-full font-semibold transition-colors duration-200"
               >
                 Poznaj prądnice STAMFORD
               </Link>

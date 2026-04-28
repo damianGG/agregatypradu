@@ -55,13 +55,15 @@ export const aggregateControllerFeatures = [
     "Trzy tryby pracy: STOP, MAN i AUTO"
 ];
 
+const AGGREGATE_MAIN_THUMBNAIL = "pluspower150kw_mainphoto.png";
+
 const aggregateModels: AggregateModel[] = [
   {
     power: 24,
     kva: 30,
     slug: "agregat-pluspower-24-kw",
     title: "Agregat PlusPower 24 kW",
-    image: "pluspower150kw_mainphoto",
+    image: AGGREGATE_MAIN_THUMBNAIL,
     description: "Agregat PlusPower 24 kW to kompaktowe źródło zasilania dla mniejszych obiektów, gospodarstw oraz zaplecza technicznego. Sprawdza się tam, gdzie liczy się oszczędna eksploatacja, niewielkie gabaryty i szybkie uruchomienie rezerwy mocy.",
     price: 25000,
     applications: [
@@ -135,7 +137,7 @@ const aggregateModels: AggregateModel[] = [
     kva: 50,
     slug: "agregat-pluspower-40-kw",
     title: "Agregat PlusPower 40 kW",
-    image: "pluspower150kw_mainphoto",
+    image: AGGREGATE_MAIN_THUMBNAIL,
     description: "Agregat PlusPower 40 kW został przygotowany do stabilnego zasilania budynków usługowych, warsztatów i mniejszych obiektów przemysłowych. Łączy korzystne gabaryty z mocą pozwalającą zabezpieczyć ważne odbiory trójfazowe.",
     price: 31000,
     applications: [
@@ -209,7 +211,7 @@ const aggregateModels: AggregateModel[] = [
     kva: 63,
     slug: "agregat-pluspower-50-kw",
     title: "Agregat PlusPower 50 kW",
-    image: "pluspower150kw_mainphoto",
+    image: AGGREGATE_MAIN_THUMBNAIL,
     description: "Agregat PlusPower 50 kW to uniwersalna jednostka dla firm potrzebujących pewnej rezerwy mocy do pracy awaryjnej i planowej. Z powodzeniem obsługuje obiekty komercyjne, produkcyjne i zaplecze budowlane.",
     price: 35000,
     applications: [
@@ -283,7 +285,7 @@ const aggregateModels: AggregateModel[] = [
     kva: 100,
     slug: "agregat-pluspower-80-kw",
     title: "Agregat PlusPower 80 kW",
-    image: "pluspower150kw_mainphoto",
+    image: AGGREGATE_MAIN_THUMBNAIL,
     description: "Agregat PlusPower 80 kW zaprojektowano z myślą o średnich zakładach, magazynach i obiektach wymagających większej rezerwy energetycznej. To model do pracy w wymagającym środowisku, gdzie liczy się stabilność parametrów i trwałość podzespołów.",
     price: 42000,
     applications: [
@@ -357,7 +359,7 @@ const aggregateModels: AggregateModel[] = [
     kva: 125,
     slug: "agregat-pluspower-100-kw",
     title: "Agregat PlusPower 100 kW",
-    image: "pluspower150kw_mainphoto",
+    image: AGGREGATE_MAIN_THUMBNAIL,
     description: "Agregat PlusPower 100 kW to rozwiązanie dla obiektów o większym zapotrzebowaniu na moc, w których ciągłość pracy ma kluczowe znaczenie. Model dobrze sprawdza się jako zabezpieczenie infrastruktury przemysłowej, logistycznej i technicznej.",
     price: 44000,
     applications: [
@@ -431,7 +433,7 @@ const aggregateModels: AggregateModel[] = [
     kva: 150,
     slug: "agregat-pluspower-120-kw",
     title: "Agregat PlusPower 120 kW",
-    image: "pluspower150kw_mainphoto",
+        image: AGGREGATE_MAIN_THUMBNAIL,
     description: "Agregat PlusPower 120 kW to mocny model dla obiektów przemysłowych i infrastruktury krytycznej, które nie mogą pozwolić sobie na przestoje. Zapewnia wysoką wydajność, dużą pojemność zbiornika oraz parametry odpowiednie do zasilania kluczowych instalacji.",
     price: 56000,
     applications: [
@@ -505,7 +507,7 @@ const aggregateModels: AggregateModel[] = [
     kva: 180,
     slug: "agregat-pluspower-150-kw",
     title: "Agregat PlusPower 150 kW",
-    image: "pluspower150kw_mainphoto",
+        image: AGGREGATE_MAIN_THUMBNAIL,
     description: "Agregat PlusPower 150 kW jest przeznaczony do zasilania dużych zakładów, obiektów strategicznych oraz najbardziej wymagających instalacji rezerwowych. To model o najwyższej mocy w tej grupie, przygotowany do pracy z dużymi obciążeniami i rozbudowaną infrastrukturą.",
     price: 59000,
     applications: [

@@ -24,10 +24,7 @@ export default function ProductDetails() {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
               Wybierz agregat dopasowany do potrzeb Twojej inwestycji
             </h2>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              Przygotowaliśmy oddzielne podstrony dla najważniejszych modeli agregatów PlusPower. Dzięki temu każda moc
-              może pozycjonować się osobno, a w kolejnym kroku uzupełnimy szczegółowe parametry techniczne.
-            </p>
+
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {products.map((item) => (
