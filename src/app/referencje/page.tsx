@@ -30,7 +30,7 @@ function formatTitle(fileName: string) {
 
 function formatFileSize(sizeInBytes: number) {
   if (sizeInBytes < 1024 * 1024) {
-    return `${Math.max(1, Math.round(sizeInBytes / 102.4) / 10)} KB`;
+    return `${Math.max(0.1, Math.round((sizeInBytes / 1024) * 10) / 10)} KB`;
   }
 
   return `${Math.round((sizeInBytes / (1024 * 1024)) * 10) / 10} MB`;
@@ -99,6 +99,7 @@ export default async function ReferencjePage() {
   return (
     <>
       <section
+        aria-label="Referencje klientów"
         className="relative min-h-[300px] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: "url(/img/photos/bg3.jpg)" }}
       >
