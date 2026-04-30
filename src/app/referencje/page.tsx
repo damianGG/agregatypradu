@@ -23,7 +23,9 @@ function formatTitle(fileName: string) {
     .replace(/[-_]+/g, " ")
     .replace(/\s+/g, " ")
     .trim()
-    .replace(/\b\p{L}/gu, (char) => char.toUpperCase());
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }
 
 function formatFileSize(sizeInBytes: number) {
