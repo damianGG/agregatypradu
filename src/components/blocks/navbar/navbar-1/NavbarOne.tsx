@@ -23,6 +23,7 @@ export default function NavbarOne() {
     { href: "/oferta", label: "Oferta" },
     { href: "/agregaty", label: "Agregaty" },
     { href: "/galeria", label: "Galeria" },
+    { href: "/referencje", label: "Referencje" },
     { href: "/kontakt", label: "Kontakt" },
   ];
 
