@@ -29,8 +29,12 @@ function formatTitle(fileName: string) {
 }
 
 function formatFileSize(sizeInBytes: number) {
+  if (sizeInBytes < 1024) {
+    return `${sizeInBytes} B`;
+  }
+
   if (sizeInBytes < 1024 * 1024) {
-    return `${Math.max(0.1, Math.round((sizeInBytes / 1024) * 10) / 10)} KB`;
+    return `${Math.round((sizeInBytes / 1024) * 10) / 10} KB`;
   }
 
   return `${Math.round((sizeInBytes / (1024 * 1024)) * 10) / 10} MB`;
