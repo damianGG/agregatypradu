@@ -155,12 +155,11 @@ export default async function ReferencjePage() {
                     </div>
                     <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/15 to-transparent" />
                     <div
-                      role="img"
-                      aria-label="Plik PDF"
+                      aria-hidden="true"
                       className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-blue-700/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white shadow-lg backdrop-blur"
                     >
                       <PdfIcon className="h-5 w-5 text-white" />
-                      <span aria-hidden="true">PDF</span>
+                      <span>PDF</span>
                     </div>
                     <div
                       aria-hidden="true"
