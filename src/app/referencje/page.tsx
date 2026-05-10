@@ -71,9 +71,9 @@ async function getReferenceDocuments(): Promise<ReferenceDocument[]> {
   }
 }
 
-function PdfIcon() {
+function PdfIcon({ className = "h-16 w-16 text-white" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 64 64" className="h-16 w-16 text-white" fill="none" aria-hidden="true">
+    <svg viewBox="0 0 64 64" className={className} fill="none" aria-hidden="true">
       <path
         d="M20 6h16l14 14v30a8 8 0 0 1-8 8H20a8 8 0 0 1-8-8V14a8 8 0 0 1 8-8Z"
         fill="currentColor"
@@ -122,7 +122,7 @@ export default async function ReferencjePage() {
             <span className="inline-block bg-blue-100 text-blue-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
               Dokumenty PDF
             </span>
-            <p className="text-gray-700 text-lg leading-relaxed">
+            <p className="text-base leading-relaxed text-gray-700 sm:text-lg">
               Każda referencja jest dostępna jako osobny plik PDF. Kliknij wybraną kartę, aby
               otworzyć dokument w nowej karcie i pobrać go na swoje urządzenie.
             </p>
@@ -138,16 +138,33 @@ export default async function ReferencjePage() {
                   rel="noreferrer"
                   className="group flex h-full flex-col overflow-hidden rounded-3xl border border-blue-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl"
                 >
-                  <div className="flex aspect-[4/3] items-center justify-center bg-gradient-to-br from-blue-700 via-blue-600 to-sky-500 p-8">
-                    <PdfIcon />
+                  <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-slate-100 via-white to-blue-100 sm:aspect-[4/3]">
+                    <div className="absolute inset-3 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg sm:inset-4">
+                      <iframe
+                        src={`${document.href}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                        title={`Podgląd dokumentu ${document.title}`}
+                        className="pointer-events-none h-full w-full"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/15 to-transparent" />
+                    <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-blue-700/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-lg backdrop-blur">
+                      <PdfIcon className="h-5 w-5 text-white" />
+                      PDF
+                    </div>
+                    <div className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-slate-700 shadow-sm backdrop-blur">
+                      Podgląd dokumentu
+                    </div>
                   </div>
 
-                  <div className="flex flex-1 flex-col p-6">
+                  <div className="flex flex-1 flex-col p-5 sm:p-6">
                     <div className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
                       PDF • {document.sizeLabel}
                     </div>
-                    <h2 className="mt-4 text-2xl font-bold text-gray-900">{document.title}</h2>
-                    <p className="mt-3 flex-1 text-base leading-relaxed text-gray-600">
+                    <h2 className="mt-4 text-xl font-bold text-gray-900 sm:text-2xl">
+                      {document.title}
+                    </h2>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-600 sm:text-base">
                       {document.description}
                     </p>
                     <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-blue-700 transition-transform duration-300 group-hover:translate-x-1">
