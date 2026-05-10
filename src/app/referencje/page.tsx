@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 type ReferenceDocument = {
   id: string;
   href: string;
+  previewHref: string;
   title: string;
   description: string;
   sizeLabel: string;
@@ -40,6 +41,10 @@ function formatFileSize(sizeInBytes: number) {
   return `${Math.round((sizeInBytes / (1024 * 1024)) * 10) / 10} MB`;
 }
 
+function getPreviewHref(fileName: string) {
+  return `/referencje/${encodeURIComponent(fileName)}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`;
+}
+
 async function getReferenceDocuments(): Promise<ReferenceDocument[]> {
   try {
     const entries = await fs.readdir(referencesDirectory, { withFileTypes: true });
@@ -54,6 +59,7 @@ async function getReferenceDocuments(): Promise<ReferenceDocument[]> {
           return {
             id: entry.name,
             href: `/referencje/${encodeURIComponent(entry.name)}`,
+            previewHref: getPreviewHref(entry.name),
             title: formatTitle(entry.name),
             description: "Dokument referencyjny w formacie PDF dostępny do podglądu i pobrania.",
             sizeLabel: formatFileSize(stats.size),
@@ -141,14 +147,14 @@ export default async function ReferencjePage() {
                   <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-slate-100 via-white to-blue-100 sm:aspect-[4/3]">
                     <div className="absolute inset-3 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg sm:inset-4">
                       <iframe
-                        src={`${document.href}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+                        src={document.previewHref}
                         title={`Podgląd dokumentu ${document.title}`}
                         className="pointer-events-none h-full w-full"
                         loading="lazy"
                       />
                     </div>
                     <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/15 to-transparent" />
-                    <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-blue-700/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-lg backdrop-blur">
+                    <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-blue-700/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white shadow-lg backdrop-blur">
                       <PdfIcon className="h-5 w-5 text-white" />
                       PDF
                     </div>
@@ -158,7 +164,7 @@ export default async function ReferencjePage() {
                   </div>
 
                   <div className="flex flex-1 flex-col p-5 sm:p-6">
-                    <div className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
+                    <div className="text-sm font-semibold uppercase tracking-[0.12em] text-blue-600">
                       PDF • {document.sizeLabel}
                     </div>
                     <h2 className="mt-4 text-xl font-bold text-gray-900 sm:text-2xl">
