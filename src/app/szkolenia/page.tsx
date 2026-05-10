@@ -57,7 +57,7 @@ export default function TrainingPage() {
             <div className="overlap-grid overlap-grid-2">
               <div>
                 <figure className="rounded shadow">
-                  <Image src="/img/photos/photo-1.jpg" width={600} height={1000} alt="Szkolenia" />
+                  <Image src="/img/photos/photo-1.jpg" width={600} height={1000} alt="Uczestnicy podczas szkolenia i warsztatów" />
                 </figure>
               </div>
             </div>
