@@ -154,11 +154,18 @@ export default async function ReferencjePage() {
                       />
                     </div>
                     <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/15 to-transparent" />
-                    <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-blue-700/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white shadow-lg backdrop-blur">
+                    <div
+                      role="img"
+                      aria-label="Plik PDF"
+                      className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-blue-700/90 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white shadow-lg backdrop-blur"
+                    >
                       <PdfIcon className="h-5 w-5 text-white" />
-                      PDF
+                      <span aria-hidden="true">PDF</span>
                     </div>
-                    <div className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-slate-700 shadow-sm backdrop-blur">
+                    <div
+                      aria-hidden="true"
+                      className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-slate-700 shadow-sm backdrop-blur"
+                    >
                       Podgląd dokumentu
                     </div>
                   </div>
