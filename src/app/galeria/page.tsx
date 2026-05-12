@@ -2,26 +2,23 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { aggregateGalleryImages } from "@/data/aggregate-gallery";
 
 interface Photo {
-  id: number;
+  id: string;
   src: string;
   alt: string;
   width: number;
   height: number;
 }
 
-const photos: Photo[] = [
-  { id: 1, width: 600, height: 400, src: "/img/photos/IMG_6274.jpg", alt: "Agregat 1" },
-  { id: 2, width: 600, height: 400, src: "/img/photos/IMG_6275.jpg", alt: "Agregat 2" },
-  { id: 3, width: 600, height: 400, src: "/img/photos/1.png", alt: "Agregat 3" },
-  { id: 4, width: 600, height: 400, src: "/img/photos/2.png", alt: "Agregat 4" },
-  { id: 5, width: 600, height: 400, src: "/img/photos/3.png", alt: "Agregat 5" },
-  { id: 6, width: 600, height: 400, src: "/img/photos/4.png", alt: "Agregat 6" },
-  { id: 7, width: 600, height: 400, src: "/img/photos/5.png", alt: "Agregat 7" },
-  { id: 8, width: 600, height: 400, src: "/img/photos/6.png", alt: "Agregat 8" },
-  { id: 9, width: 600, height: 400, src: "/img/photos/7.png", alt: "Agregat 9" },
-];
+const photos: Photo[] = aggregateGalleryImages.map(({ src, alt }) => ({
+  id: src,
+  width: 600,
+  height: 400,
+  src,
+  alt,
+}));
 
 export default function PhotoGallery() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
