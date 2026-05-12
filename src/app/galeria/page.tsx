@@ -5,15 +5,15 @@ import Image from "next/image";
 import { aggregateGalleryImages } from "@/data/aggregate-gallery";
 
 interface Photo {
-  id: number;
+  id: string;
   src: string;
   alt: string;
   width: number;
   height: number;
 }
 
-const photos: Photo[] = aggregateGalleryImages.map(({ src, alt }, index) => ({
-  id: index + 1,
+const photos: Photo[] = aggregateGalleryImages.map(({ src, alt }) => ({
+  id: src,
   width: 600,
   height: 400,
   src,
