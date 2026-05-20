@@ -56,6 +56,14 @@ export default function ProductActions({ model }: ProductActionsProps) {
         </ul>
       </div>
 
+      <div className="rounded-2xl border border-[#e5740e]/20 bg-orange-50 p-5">
+        <p className="text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide">Opcja dodatkowa</p>
+        <p className="text-gray-700 leading-relaxed">
+          Każdy agregat możemy zamontować na przyczepce na indywidualne zapytanie klienta. Taka zabudowa jest
+          wyceniana indywidualnie w zależności od modelu i zakresu realizacji.
+        </p>
+      </div>
+
       <div className="pt-2">
         <button
           type="button"

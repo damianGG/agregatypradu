@@ -124,6 +124,62 @@ export const aggregateGalleryImages: AggregateGalleryImage[] = [
     src: "/img/photos/agregaty-pluspower/komplet dokumnetow.JPG",
     alt: "Agregat PlusPower - komplet dokumentów",
   },
+  {
+    src: "/img/photos/agregaty-pluspower/przyczepka/IMG_3909.JPG",
+    alt: "Agregat PlusPower - przyczepka pod montaż agregatu, widok boczny",
+  },
+  {
+    src: "/img/photos/agregaty-pluspower/przyczepka/IMG_3912.JPG",
+    alt: "Agregat PlusPower - przyczepka transportowa pod agregat, widok z przodu",
+  },
+  {
+    src: "/img/photos/agregaty-pluspower/przyczepka/IMG_3917.jpg",
+    alt: "Agregat PlusPower - przyczepka pod agregat, detal konstrukcji",
+  },
+  {
+    src: "/img/photos/agregaty-pluspower/przyczepka/IMG_3918.JPG",
+    alt: "Agregat PlusPower - przyczepka do indywidualnej zabudowy agregatu",
+  },
+  {
+    src: "/img/photos/agregaty-pluspower/przyczepka/IMG_3923.jpg",
+    alt: "Agregat PlusPower - przyczepka pod agregat, widok z lewej strony",
+  },
+  {
+    src: "/img/photos/agregaty-pluspower/przyczepka/IMG_3924.jpg",
+    alt: "Agregat PlusPower - przyczepka pod agregat, platforma montażowa",
+  },
+  {
+    src: "/img/photos/agregaty-pluspower/przyczepka/IMG_3926.jpg",
+    alt: "Agregat PlusPower - przyczepka pod agregat, widok z prawej strony",
+  },
+  {
+    src: "/img/photos/agregaty-pluspower/przyczepka/IMG_3927.JPG",
+    alt: "Agregat PlusPower - przyczepka pod agregat, ujęcie tylne",
+  },
+  {
+    src: "/img/photos/agregaty-pluspower/przyczepka/IMG_3928.JPG",
+    alt: "Agregat PlusPower - przyczepka z przygotowaniem pod montaż agregatu",
+  },
+  {
+    src: "/img/photos/agregaty-pluspower/przyczepka/IMG_3929.JPG",
+    alt: "Agregat PlusPower - przyczepka agregatu, widok całości",
+  },
+  {
+    src: "/img/photos/agregaty-pluspower/przyczepka/IMG_3930.JPG",
+    alt: "Agregat PlusPower - przyczepka do mobilnej zabudowy agregatu",
+  },
+  {
+    src: "/img/photos/agregaty-pluspower/przyczepka/IMG_3931.JPG",
+    alt: "Agregat PlusPower - przyczepka pod agregat, detal ramy",
+  },
+  {
+    src: "/img/photos/agregaty-pluspower/przyczepka/IMG_3935.JPG",
+    alt: "Agregat PlusPower - przyczepka pod agregat, gotowa baza montażowa",
+  },
+  {
+    src: "/img/photos/agregaty-pluspower/przyczepka/IMG_3938.JPG",
+    alt: "Agregat PlusPower - przyczepka pod agregat, widok końcowy",
+  },
 ];
 
 export const aggregateGalleryCoverImage = aggregateGalleryImages[0];
